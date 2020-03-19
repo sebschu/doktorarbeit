@@ -1,2 +1,2 @@
-# doktorarbeit
+# Doktorarbeit
 Dissertation "Semantic/pragmatic adaptation"
