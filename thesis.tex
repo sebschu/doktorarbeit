@@ -1,0 +1,118 @@
+%\documentclass[12pt,twoside]{report}
+\documentclass[12pt]{report}
+
+%% last modification is June 4, 2016, Emma Pease
+
+% note that the document can be single or double sided.  
+% note that the Registrar's office now allows 10pt, 11pt, or 12pt
+
+\usepackage{suthesis}
+% default is now online June/2016 version
+%\usepackage[online]{suthesis-2e}
+%\usepackage[hardcopy]{suthesis-2e}
+% the following is for doing engineering theses. 
+% I am definitely not sure of the wording on the signature page so check
+%\usepackage[engineer]{suthesis-2e}
+
+% one can change the default font to Times Roman but note that most
+% ways of creating pdf files from latex automatically embed (which btw
+% is a good idea even with the standard fonts)
+
+    \title{Semantic/Pragmatic adaptation}
+    \author{Sebastian Schuster}
+    \dept{Linguistics}
+    \principaladviser{Judith Degen}
+    \firstreader{Christopher G. Potts}
+    \secondreader{Daniel Lassiter}
+%% one can also have a \thirdreader and \fourthreader
+
+%% note that certain departments and types of theses have other requirements
+%% For instance theses in the departments of 
+%% Asian Languages
+%% French and Italian
+%% Spanish and Portuguese
+%% need to define the \dept, \dualthesis, and the actual language
+%\dualthesis
+%\languagemajor{Chinese}
+%% 
+%% Those for Graduate Program in Humanities need to define 
+%\humanitiesthesis
+%\jointprogram{Arts and Crafts}
+%% 
+%% For submission to a committee or program (no department)
+% \committeethesis
+% \programthesis
+%%
+%% For School of Education or Business or Law
+% \educationthesis
+% \businessthesis
+% \lawthesis  (law actually isn't listed in the official documents, 2013/1014)
+
+\begin{document}
+
+% for a variety of reasons this is an all in one document; however,
+% when actually doing the thesis it is strongly recommended that each
+% chapter be in a separate file and use \include to include in the
+% main file.
+
+%% the \beforepreface command produces the title page
+%% in the online version it skips the copyright (page 2) and signature (page 3) pages 
+%% in the non-online version these would be included
+    \beforepreface
+
+
+%% Abstract can be any number of pages
+    \prefacesection{Abstract}
+
+    \include{chapters/a-abstract}
+
+%% one can also have a prefacesection that is a Preface instead of
+%% Acknowledgements.   The thematic purpose is the same (thanks).
+    \prefacesection{Acknowledgements}
+    \include{chapters/b-acknowledgements}
+
+
+%% afterpreface produces a table of contents and any other tables
+%% wanted. At the end pagenumbering changes from roman to arabic and
+%% is restarted
+    \afterpreface
+ 
+%% Normally the \chapter and any text would be in a separate file and included.
+    \chapter{Introduction}
+    \include{chapters/1-introduction}
+
+    \chapter{Background}
+    \include{chapters/2-background}
+
+    \chapter{Production expectations}
+    \include{chapters/3-expectations}
+
+    \chapter{Adaptation}
+    \include{chapters/4-adaptation}
+
+    \chapter{Speaker-specific adaptation}
+    \include{chapters/5-speaker-specific}
+
+    \chapter{Explaining away}
+    \include{chapters/6-explaining-away}
+    
+    \chapter{Conclusions}
+    \include{chapters/7-conclusions}
+
+    
+   %% appendix changes Chapter numbering from Arabic to Alphabetic
+%    \appendix
+ %   \chapter{A Long Proof}
+
+
+
+
+%% for Bibliography I would recommend a separate .bib file (bibtex) instead of inline as here.
+%\nocite{astl2,perry1,pollardsag1}
+%\nocite{*}
+    \bibliographystyle{plain}
+    \bibliography{references}
+
+
+
+\end{document}
