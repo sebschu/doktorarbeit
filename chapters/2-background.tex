@@ -1,0 +1,264 @@
+\section{The semantics of uncertainty expressions}
+
+While this is not a dissertation about modality, many of the utterances that I consider in my experiments contain an epistemic modal.
+Since I discuss the implications of my experimental results for popular theories of the semantic of epistemic modals in Section~{XXX}, and since 
+my computational model is inspired by recent accounts of epistemic modality, I provide a brief introduction to several theories of modality in this section.
+
+Here, and throughout this dissertation, I adapt the broad notion of modality by \cite{Portner2009} and \cite{Kratzer2012Ch2}, which not only 
+includes modal auxiliaries (e.g., \textit{might}, \textit{could}) but also other evidential devices such as probability operators 
+(e.g., \textit{probably}) and attitude verbs (e.g., \textit{think}). At the same time, however, to limit the scope of this discussion,  
+I will only cover epistemic modality, and therefore omit any discussion of deontic modals, i.e., modals to express how the 
+world should be according to laws, societal norms, etc., which are frequently discussed together with epistemic modals.
+I will also omit discussions of the important connections between modals and conditionals \cite{see e.g., Lewis1973?,Kratzer1978,Kratzer1979,Kratzer2012}
+and discussions of the extent to which different semantic theories validate desired and undesired logical inferences \cite{see e.g., Yalcin2010}.
+
+\subsection{Background: Possible world semantics}
+
+Classical modal logic and most other semantic theories of modals are based on the concept of possible worlds \cite{kripke1963}.
+A possible world is a world which differs in one or multiple properties from the actual world. For example, while the proposition $\phi_{brown}$
+expressed by the  sentence ``I have brown hair'' is true in the actual world $w$, one possible world $w_1$ is identical in every regard to 
+the actual world except that the proposition $\phi_{blond}$ encoded by ``I have blond hair'' is true and the one encoded by
+``I have brown hair'' ($\phi_{brown}$) is false. 
+
+According to  a possible world semantics, all sentences have to be evaluated relative to a possible world $w$ and
+propositions $\phi$ can be represented as a set of worlds in which $\phi$ is true. If we consider the worlds $w$ and $w_1$ as described here,
+the propositions expressed by the sentences ``I have brown hair'' and ``I have blond hair'' evaluate to different truth conditions, depending on the possible world.
+
+$$\sem{\phi_{brown}}^w = 1 \mbox{ iff } w \in \phi_{brown}  = 1$$
+$$\sem{\phi_{brown}}^{w_1} = 1 \mbox{ iff } w_1 \in \phi_{brown}  = 0$$
+$$\sem{\phi_{blond}}^{w} = 1\mbox{ iff } w \in \phi_{blond} = 0$$
+$$\sem{\phi_{blond}}^{w_1} = 1 \mbox{ iff } w_1 \in \phi_{blond} = 1$$
+
+
+
+
+%* start off with why i'm talking about modals
+
+%* what are modals
+
+%* what are the questions relevant to modality
+
+%* which ones of these are relevant for this thesis
+
+%* Possible worlds
+
+%* Modal logic
+
+%* Kratzer
+
+%* threshold semantics proposals
+
+%* wallsten/budesco
+
+
+
+
+%The semantics of epistemic modals\footnote{I adapt the broad notion of modality by \cite{Portner2009} and \cite{Kratzer2012}, which not only 
+%includes modal auxiliaries (e.g., \textit{might}, \textit{could}) but also other evidential devices such as probability operators 
+%(e.g., \textit{probably}) and attitude verbs (e.g., \textit{think}).} such as \textit{might}, \textit{could} and \textit{probably} 
+%has been extensively discussed in the formal semantics literature. However, a lot of these works focus on how 
+%different meaning representation affect logical inferences and how they can be used to compositionally derive the 
+%meaning of sentences with modal expressions, which are less relevant debates for the enterprise in this dissertation.
+%I therefore primarily give an overview of different formalisms along with a discussion about what they predict
+%about the interpretation of epistemic modals when they are used to communicate probabilities of future events.
+
+\subsubsection{Modal logic}
+
+In classical modal logic, the truth conditions of sentences with epistemic modals depend on an accessibility relation $R$.
+$R$ determines which worlds $w'$ are epistemically accessible from the actual world $w$, i.e., which worlds are epistemically consistent with
+the actual world. For example, consider rolling two six-sided dice, one after another. Before you roll the first die, all worlds in which the sum of
+the two dice is between 2 and 12 (all possible combinations of two dice) are epistemically accessible since they are compatible with the actual
+world. Now, if you roll one of the dice and it comes up 4, only worlds in which the sum of the two dice is between 5 and 10 (all possible sums of 4 and 
+a number between 1 and 6) are epistemically accessible. 
+
+Formally, if $wRw'$ is true then $w'$ is epistemically accessible from $w$. A proposition $\phi$ embedded under an epistemic modal is then true
+if either $\phi$ is  true in all epistemically accessible worlds (for necessity modals such as \textit{must}) or $\phi$ is true in at least one epistemically 
+accessible world (for possibility modals such as \textit{might}).
+
+\begin{exe}
+\ex \label{ex:modall-must} $\sem{\mbox{must } \phi}^{w}  = 1 \mbox{ iff } \forall w' \in W: wRw' \rightarrow  \sem{\phi}^{w'} = 1$
+\ex \label{ex:modall-might} $\sem{\mbox{might } \phi}^{w}  = 1 \mbox{ iff } \exists w' \in W: wRw' \rightarrow  \sem{\phi}^{w'} = 1$
+\end{exe}
+
+If we again use the example of rolling two dice and assume that the world $w_x$ corresponds to the sum 
+of the two dice being $x$, then $wRw'$ is true iff $w' \in \{w_2, w_3, ..., w_{11}, w_{12}\}$. Therefore, for example,
+\begin{align*}
+\sem{&\mbox{must roll a number between 2 and 12}}^{w} =  1 \\
+ & \mbox{(since \textit{roll a number between 2 and 12} is true in all epistemically accessible worlds)} \\ \\ 
+ \sem{&\mbox{must roll a 7}}^{w} =  0 \\
+ & \qquad \qquad \qquad \quad \mbox{ (since \textit{roll a 7} is only true in some epistemically accessible worlds)} \\ \\
+ \sem{&\mbox{might roll a 7}}^{w} =  1 \\
+ &  \qquad \qquad \qquad \qquad \quad \mbox{ (since \textit{roll a 7} is true in the epistemically accessible world }w_7\mbox{)}\\ \\ 
+ \sem{&\mbox{might roll a 1}}^{w} =  0 \\
+ &  \qquad \qquad \qquad \qquad \qquad \mbox{\  (since \textit{roll a 1} is false in all epistemically accessible worlds).}
+\end{align*}
+
+While this approach seems intuitively correct for scenarios like rolling two dice, it is very challenging to represent utterances
+that convey more fine-grained meanings than mere possibility or necessity. As \cite{Lassiter2017} points out, one could extend this proposal
+to modal expressions such as \textit{probably} and \textit{likely} by assuming that \textit{probably $\phi$} is true if $\phi$ is true in more 
+epistemically accessible worlds than epistemically accessible worlds in which $\phi$ is false:
+\begin{exe}
+\ex $\sem{\mbox{probably} \phi}^{w}  = 1 $ \\ 
+ \ \ \ \ \ \ \ \ $ \mbox{ iff } |\{w' \in W \mid wRw' = 1 \land \sem{\phi}^{w'} = 1\}| > |\{w' \in W \mid wRw' = 1 \land \sem{\phi}^{w'} = 0\}|$
+\end{exe}
+However, this proposal comes with at least two shortcomings if one wants to consider it as a 
+complete theory of epistemic modals. First, one has to make the limit assumption \cite{Lewis1981}, i.e., 
+one has to assume that $W$ contains a finite number of possible worlds. Second, this proposal does not provide 
+a theory of interpretation for any type of graded epistemic modal expressions such as \textit{It is 60\% likely that...} or \textit{It is highly probable that...}
+or modal expressions in comparative constructions such as \textit{It is twice as likely that X than Y} \cite{Lassiter2017}. Third, there
+is no connection between event probabilities and the use of different modals except that this account would predict that \textit{might $\phi$} is true
+when the probability of $\phi$ is greater than 0, and \textit{must $\phi$} is true if the probability of $\phi$ is 1.
+
+%For my experiments, neither of this will be necessarily an issue; I am not dealing with graded expression 
+%and the number of future events and hence also the number of possible world is limited. 
+%However, two additional issues arise. First, given the previously established inter-subject variability in the interpretation 
+%of epistemic modals \cite{Wallsten1986}, we need a theory that can accommodate variability. The only possibility to represent
+%variability in this formalism would be to assume that either different speakers use different accessibility relations or different speakers
+%use different sets of possible worlds. However, it seems unlikely that speakers who have access to the same kind of information 
+%(the same visual stimuli both in \cite{Wallsten1986} and in my experiments) would rely on different accessibility relations or a different set of 
+%possible worlds.
+
+%Second, while intuitively this definition of \textit{probably} such that $\sem{\mbox{probably} \phi}^w$ is true if $\phi$ is more likely than $\lnot \phi$ 
+%appears to be reasonable, there does not seem to be a similar definition for other uncertainty expression such as \textit{think} or \textit{looks like}.
+%We could again assume that there are different accessibility relations associated with 
+
+% and unless we assume
+%variable accessibility relations $R$ or variable sets of possible worlds, this theory cannot represent 
+
+% it remains unclear how this theory could predict any type of variability. Second, 
+
+
+
+%probably $ wRw' and true / wRw' > 0.5$ 
+%might $ wRw' and true / wRw' > 0$ 
+%must $ wRw' and true / wRw' = 1$
+%very likely $ wRw' and true / wRw' > 0.5 + \theta$
+%more likely than $ wRw' and A is true / wRw' > wRw' and B is true / wRw'$
+
+%issues: one has to be very careful how to set up the world structure --> otherwise law of probability no longer holds
+
+%needs again limit assumption
+
+%how is this better from just using probabilities?
+
+\subsubsection{Double relativity of modals}
+
+The most prominent semantic theory of epistemic modals (and all other flavors of modals) is the account by Kratzer 
+\cite{Kratzer1981,1991}, later revised in \cite{Kratzer2012}. Building on \cite{Lewis1973}, she developed a unifying 
+account of all modal flavors, which assumes that there are several core meanings of modals that can be expressed 
+by various linguistic devices (e.g., \textit{could} and \textit{might} are both possibility modals), and that the interpretation
+of a sentence with a modal depends on two \textit{conversational backgrounds}, that is, contextually specified functions 
+from possible worlds to sets of propositions: 
+the \textit{modal base} $f(w)$ and the \textit{ordering source} $g(w)$. 
+
+The intuition behind the modal base $f(w)$ is that one can explicitly state which worlds the modal quantifies over using an 
+``In the view of ...'' adverbial clause. For example, for epistemic modals, the modal base may be a function that returns the set of propositions
+that are compatible with what is knowns in the current world, which can be explicitly expressed in a sentence with an epistemic modal through the
+adverbial clause ``In the view of what is known'':
+
+\begin{exe}
+\ex In the view of what is known, it could rain tomorrow.
+\end{exe}
+
+\noindent Kratzer argues that utterances without explicit mention of a conversational background are interpreted
+by contextually resolving the relevant modal base. If we ignore the ordering source for a second, this leads to the following 
+definitions of $f$-necessity and $f$-possibility.
+
+\begin{quote}
+\noindent $f$-\textit{necessity}: \\
+$\phi$ is a necessity with respect to a modal base $f$ iff $\phi \subseteq \cap f(w)$.
+
+\noindent $f$-\textit{possibility}: \\
+$\phi$ is a possibility with respect to a modal base $f$ iff $\cap \{\{\phi\} \cup  f(w) \} \ne \emptyset$.
+\end{quote}
+
+The semantics of sentences with necessity modals such as \textit{must} and possibility modals such as \textit{might}
+can then be expressed in terms of $f$-necessity and -possibility:
+
+\begin{exe}
+\ex $\sem{\mbox{must }\phi}^{w,f} = 1 \mbox{iff $\phi$ is an $f$-necessity in $w$} $
+\ex $\sem{\mbox{might } \phi}^{w,f} = 1 \mbox{iff $\phi$ is an $f$-possibility in $w$} $
+\end{exe}
+
+The semantics of these expressions is equivalent to the classical modal logic semantics presented in (\ref{ex:modall-must})  and (\ref{ex:modall-might}), 
+since the accessibility relation $R$ can be defined as $wRw' = w' \in \cap f(w)$. For this reason, this account suffers from the same
+issues as the classical modal logic account: it cannot be used to derive interpretations for graded modals or comparatives.
+
+Kratzer partially resolves these issues by introducing a second conversational background, 
+the ordering source $g(w)$. $g(w)$ defines a partial preorder $\le_{g(w)}$ over the set of possible worlds $W$ such that 
+$$u \le_{g(w)} v \mbox{ iff } \{ p \in g(w) \mid u \in p \} \subseteq \{ p \in g(w) \mid v \in p \}.$$
+That means, $v$ is at least as close to an ideal as $u$ iff all propositions in the set of ideal 
+propositions $g(w)$ that are true in $u$ are also true in $v$. In the case of epistemic modals, 
+the ideal as defined by $g(w)$, is usually assumed to contain propositions corresponding to a normal course of events.
+
+Necessity and possibility then be defined as follows.
+\begin{quote}
+\noindent \textit{Necessity}: \\
+$\phi$ is a necessity with respect to a modal base $f$ and an ordering source $g$ iff for all $u \in \cap f(w)$, there is a $v \in \cap f(w)$
+such that $u \ge_{g(w)} v$ and for all $z \in \cap f(w):$ if $v \ge_{g(w)} z$, then $z \in \phi$.
+
+\noindent \textit{Possibility}: \\
+$\phi$ is a possibility with respect to a modal base $f$ and an ordering source $g$ iff $\lnot \phi$ is not a necessity with respect to $f$ and $g$.
+\end{quote}
+\noindent Intuitively, the definition of necessity can be seen as further restricting the modal source such that something must be true if it is true in 
+all epistemically accessible worlds that come closest to the ideal defined by the ordering source. 
+
+To illustrate how the modal base and the ordering source work together, imagine a murder case in a small town in which 
+there are four suspects A, B, C, and D who all have a motive.\footnote{Example adapted from \cite{Kratzer2012Ch2}.} Further,
+there was a tourist T from Iceland in town when the murder happened. Since random tourists rarely murder somebody without
+a motive, the set of normal propositions $g(w)$ in this example could be $\{a, b, c, d\}$, where each proposition corresponds to
+ A, B, C, and D committing the murder, respectively. 
+However, the conversational background of what is known $f(w)$ is compatible with A, B, C, D, or T being the murderer,
+i.e., $\cap f(w) = \cup \{a, b, c, d, t\}$. Now, it seems natural for a police officer to utter (\ref{ex:kratzer-a-murder-might})
+or  (\ref{ex:kratzer-abcd-murder-must}) but unlikely for the officer to utter (\ref{ex:kratzer-t-murder-might}).
+
+\begin{exe}
+\ex \label{ex:kratzer-a-murder-might} A might have committed the murder.
+\ex \label{ex:kratzer-abcd-murder-must} A or B or C or D must have committed the murder.
+\ex \label{ex:kratzer-t-murder-might} T might have committed the murder.
+\end{exe}
+
+\noindent Kratzer's account makes exactly these predictions. It predicts that (\ref{ex:kratzer-a-murder-might}) is true because 
+$\lnot a$ is not a necessity and therefore $a$ is a possbility; it predicts that (\ref{ex:kratzer-abcd-murder-must}) since 
+$a \lor b \lor c \lor d$ is a necessity; and it  predicts that (\ref{ex:kratzer-t-murder-might}) is false since $\lnot t = a \lor b \lor c \lor d$ is a necessity
+and therefore $t$ is not a possibility.
+
+Apart from introducing this distinction between normal courses of events and theoretically possible courses of events, Kratzer's account also
+provides a semantics for comparatives using the notion of comparative possibility.\footnote{This is the revised definition of comparative possibility from
+in \cite{Kratzer2012Ch2} which is slightly different from the original notion of comparative possibility in \cite{Kratzer1981}.}
+\begin{quote}
+\noindent \textit{Comparative possibility}: \\
+$\phi$ is at least as good a possibility as $\psi$ in $w$ with respect to a modal base $f$ and an ordering source $g$ iff 
+$$\lnot \exists u ( u \in \cap f(w) \land u \in \phi-\psi \land \forall v (( v \in \cap f(w) \land v \in \psi-\phi) \rightarrow v <_{g(w)} u))$$
+\end{quote}
+\noindent	Further, $\phi$ is a better possibility than $\psi$ iff $\phi$ is at least as good a  possibility as $\psi$ and $\psi$ is 
+not at least as good as possibility as $\phi$. Using this definition, \cite{Kratzer1991} defines the semantics of \textit{probably} as
+\begin{exe}
+\ex $\sem{\mbox{probably } \phi}^{w,f,g}  = 1 \mbox{ iff $\phi$ is a better possibility than $\lnot \phi$}.$ 
+\end{exe}
+\noindent Similarly, the semantics of \textit{$\phi$ is more likely than $\psi$} can be defined as 
+\begin{exe}
+\ex $\sem{\phi \mbox{ is more likely than } \psi}^{w,f,g}  = 1 \mbox{ iff $\phi$ is a better possibility than $\psi$}.$ 
+\end{exe}
+
+As compared to classical modal logic, this proposal has the advantage of providing a semantics for comparative constructions and
+a semantics for \textit{probably}. However, this account still does not provide a compositional account for modal expressions and 
+therefore does not provide a semantics for expressions such as \textit{very likely}. Second, this account also does not make predictions
+about the use of epistemic modals to communicate and infer event probabilities. \cite{Kratzer2012} briefly discusses event probabilities and shows that one
+can come up with probability measures on the set of sets of possible worlds $\mathcal{P}(W)$ such that $\phi \ge_{g(w)} \psi$ implies $P(\phi) \ge P(\psi)$. 
+However, her discussion does not go beyond showing that a connection between event probabilities and possible worlds is possible and 
+her semantic account of modals leaves it open how speakers and listeners map modals to event probabilities.
+
+\subsubsection{Threshold semantics: Lassiter, Swanson, }
+
+
+
+
+
+
+* epistemic modals
+
+* probability operators
+
+* uncertainty expressions in operation research
+
