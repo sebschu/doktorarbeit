@@ -62,7 +62,7 @@ $$\sem{\phi_{blond}}^{w_1} = 1 \mbox{ iff } w_1 \in \phi_{blond} = 1$$
 %I therefore primarily give an overview of different formalisms along with a discussion about what they predict
 %about the interpretation of epistemic modals when they are used to communicate probabilities of future events.
 
-\subsubsection{Modal logic}
+\subsection{Modal logic}
 
 In classical modal logic, the truth conditions of sentences with epistemic modals depend on an accessibility relation $R$.
 $R$ determines which worlds $w'$ are epistemically accessible from the actual world $w$, i.e., which worlds are epistemically consistent with
@@ -141,7 +141,7 @@ when the probability of $\phi$ is greater than 0, and \textit{must $\phi$} is tr
 
 %how is this better from just using probabilities?
 
-\subsubsection{Double relativity of modals}
+\subsection{Double relativity of modals}
 
 The most prominent semantic theory of epistemic modals (and all other flavors of modals) is the account by Kratzer 
 \cite{Kratzer1981,1991}, later revised in \cite{Kratzer2012}. Building on \cite{Lewis1973}, she developed a unifying 
@@ -249,16 +249,72 @@ can come up with probability measures on the set of sets of possible worlds $\ma
 However, her discussion does not go beyond showing that a connection between event probabilities and possible worlds is possible and 
 her semantic account of modals leaves it open how speakers and listeners map modals to event probabilities.
 
-\subsubsection{Threshold semantics: Lassiter, Swanson, }
+\subsection{Threshold semantics: Lassiter, Swanson, }
 
 
+\section{Verbal probability expressions}
 
+In a line of work that has largely operated in parallel to modality research, there has also been considerable research 
+into how uncertainty expressions or -- as they are referred to in this literature -- verbal probability expressions are used
+to communicate probabiklities of future events. The overarching goals of this line of work have been to determine how
+language users map uncertainty expressions to probabilities and how probabilities communicated through uncertainty expressions
+shape decision behavior \cite{BudescuWallsten1995}. 
 
+Initially, this field operated under the assumption that there exists a conventional mapping between uncertainty expressions
+and probabilities and several works tried to develop methods intended for probing this mapping. For example, \cite{BethMarom1982} 
+tried to infer single point probabilities associated with various uncertainty expressions; \cite{Hamm1991} tried to elicit which ranges of
+probabilities uncertainty expressions map to; and \cite{WallstenBudescuRapoportetal.1986} tried to infer membership functions, i.e., 
+functions that assign a value from 0 to 1 to each probability indicating how exemplary for an uncertainty expression a given
+event probability is. Membership functions are a concept from fuzzy logic and are therefore distinct from probability distributions but 
+ membership functions and probability density functions are homomorphous, so one can think of them as representing how likely a 
+probability is communicated by a given uncertainty expression.
 
+While \cite{WallstenBudescuRapoportetal1986} successfully managed to infer membership functions of uncertainty expressions
+that largely remained constant for individual participants across multiple experimental sessions, they also found that there is considerable
+inter-subject variability, suggesting that the mapping varies considerably across individual language users and challenging
+the assumption of a conventional mapping. \cite{WallstenBudescuRapoportetal1986} only speculated about the reasons 
+for this variability but they assumed that this variability was caused by individual differences such as different educational backgrounds
+or different experience levels with uncertainty expressions.
 
-* epistemic modals
+The finding that there exists considerable variability inspired a lot of follow-up work to identify contextual factors
+affecting interpretations and productions of uncertainty expressions. These factors include base probability events (e.g.,
+\textit{probable} describing the likelihood of snow in the North Carolina mountains in December is interpreted to describe
+higher event probabilities than when describing the probability of snow in October \cite{WallstenFillenbaumandCox1986}); 
+outcome severity (more severe consequences lead to inferring higher probabilities \cite{WeberHilton1990}); outcome valence
+(positive events lead to higher inferred probabilities \cite{MulletRivet1991}); and the alternatives presented in the experiment 
+\cite{Filenbaumetal1991}.
 
-* probability operators
+Despite this progress in identifying contextual factors, there has not been progress in modeling how contextual factors
+affect the interpretation of uncertainty expressions nor has there been much work on identifying systematicity in
+inter-speaker variability. Instead, \cite{Budescuetal2009} declared defeat and argued that uncertainty expressions
+lead to an ``illusion of communication'' because they are so vague that speakers and listeners employ different meanings
+without being aware of these differences (see also \cite{AmerHackenbrackNelson1994,BrunTeigen1998,TeigenBrun1999}).
+ \cite{Budescuetal2009} therefore changed their focus to studying how to best present probabilities in texts as to avoid the illusion 
+ of communication. I will argue in subsequent chapters that declaring complete defeat has been premature. While I do not question
+ that there are communicative scenarios in which speakers and listeners employ different meanings and therefore
+ fail to communicate event probabilities properly, I will argue that there are scenarios in which listeners readily update speaker
+ expectations and interpretations of uncertainty expressions, suggesting that accurate communication can be achieved in many
+ scenarios through adaptation.
+  
+ % I will argue (similarly to \cite{CollinsandHahn2018}) that this complete declaration of defeat has been premature, and that
+ %at least in part several aspects of the experimental setups can be attributed to the seemingly unavoidable illusion 
 
-* uncertainty expressions in operation research
-
+Setting aside the issue of variability for a moment, we can also ask whether membership functions could be a suitable 
+meaning representation for uncertainty expressions. Membership functions -- unlike accounts based on possible worlds --
+are capable of making predictions about the use of uncertainty expressions to communicate event probabilities, so prima facie
+they appear to be a good candidate for a meaning representation. However, one challenge for this account is the fact that
+according to most experimentally inferred membership functions, the meaning of uncertainty expressions is both lower-bounded and upper-bounded,
+i.e., according to this account an uncertainty expression can only be used if the probability that one wants to communicate is above a certain lower 
+bound $\alpha$ and below a certain upper bound $\beta$. For example, if we assume that the membership function of \textit{might} assigns
+non-zero values to probabilities in the interval $[ 0.1,0.5 ]$, then a speaker can only use \textit{might} to communicate event probabilities above 
+$\alpha=.1$ and  below $\beta=.5$. This upper-boundedness then leads to contradictions if the scalar inference from \textit{might} to a stronger 
+alternative such as \textit{certainly} is explicitly canceled, as in (\ref{ex:might-impl-canceled}), and the membership functions of the two 
+uncertainty expressions do not overlap.
+\begin{exe}
+\ex \label{ex:might-impl-canceled} You might get a scholarship, in fact you certainly will. 
+\end{exe}   
+This utterance communicates an event probability $p$ such that $\alpha_{\mbox{might}} \le p \le \beta_{\mbox{might}}$ and 
+$\alpha_{\mbox{certainly}} \le p \le \beta_{\mbox{certainly}}$ which does not exist if the membership functions of these two expressions
+do not overlap and  $\beta_{\mbox{might}}$  is lower than $\alpha_{\mbox{certaintly}}$, leading to a contradiction. This indicates that while
+membership functions are possibly a good representation for the use of uncertainty expressions in many contexts, they are not well-suited
+as a proper semantic representation. 
