@@ -318,3 +318,55 @@ $\alpha_{\mbox{certainly}} \le p \le \beta_{\mbox{certainly}}$ which does not ex
 do not overlap and  $\beta_{\mbox{might}}$  is lower than $\alpha_{\mbox{certaintly}}$, leading to a contradiction. This indicates that while
 membership functions are possibly a good representation for the use of uncertainty expressions in many contexts, they are not well-suited
 as a proper semantic representation. 
+
+
+
+\section{The Rational Speech Act framework}
+
+The Rational Speech Act (RSA; \cite{GoodmanFrank2016}, see also \cite{FrankeJaeger2016}) framework provides a computational-level
+theory of how speakers choose utterances from a set of alternative utterances and how listeners interpret utterances. 
+
+The framework can 
+be seen as a computational formulation of Gricean \cite{Grice1975} pragmatic reasoning. 
+
+\todo{proper intro}
+
+
+According to an RSA model, there are two types of agents: speaker agents $S$ and listener agents $L$. The goal of a speaker agent is to communicate
+a world state $w$ to a listener by choosing an utterance $u$ from a set of alternative utterances $U$; the goal of the listener agent is to infer the world 
+state $w$ after hearing the utterance $u$. Speaker agents and listener agents reason about each other when choosing and interpreting utterances, leading to a
+recursive probabilistic reasoning process. Generally, as a base case of this recursive process, the lowest level is represented by a so-called literal listener $L_0$.\footnote{
+\todo{mention cases in which $S_0$ is the base case.}}
+The literal listener interprets an utterance probabilistically according to the semantic interpretation function $\sem{\cdot}$ of the utterance, 
+formally resulting in a distribution over world states $w$ given an utterance $u$.
+$$L_0(w \mid u) \propto P(w) \times 
+\begin{cases}
+1 & \mbox{if } w \in \sem{u} \\
+0 & \mbox{otherwise} 
+\end{cases}$$
+The literal listener $L_0$ thus chooses a world state at random from all the worlds in which $u$ is true (as returned by $\sem{u}$).
+
+A pragmatic speaker agent $S_1$ then reasons about this literal listener when choosing their utterance. The formal goal of the 
+pragmatic speaker is to soft-maximize \cite{Luce1959,Sutton1998} the speaker utility $U(w,u)$, which balances how informative the utterances is to $L_0$ and
+how costly $u$ is to produce, as indicated by the cost function $c(u)$. Informativity is defined as the negative log surprisal of $L_0$, resulting
+in the following utility function $U$ and speaker distribution $S_1$.
+$$U(w,u) = \log L_0(w \mid u) - c(u)$$
+$$S_1(u \mid w) \propto \mbox{exp} \left( \lambda U(w,u) \right)$$
+$\lambda$ is a rationality (or temperature) parameter guiding how likely a speaker is to choose the optimal utterance. 
+Speaker choices are rational if $\lambda > 0$ and choices are increasingly optimal as $\lambda \rightarrow \infty$.
+
+At the next level, pragmatic listeners $L_1$ try to infer the world state that the speaker intended to communicate
+through Bayesian inference: $L_1$ integrates their prior beliefs about the state of the world $P(w)$ with the likelihood
+of the speaker $S_1$ choosing the observed utterance to communicate $w$:
+$$L_1(w \mid u) \propto P(w) \times S_1(u \mid w)$$
+
+This recursive reasoning process can theoretically be continued ad infinitum by adding additional speaker and listener agents that 
+reason about their respective counterpart agents one level below $i-1$ the current level $i$:
+$$U_i(w,u) = \log L_{i}(w \mid u) - c(u)$$
+$$S_i \propto \mbox{exp} \left( \lambda U_{i-1}(w,u) \right)$$
+$$ L_i(u \mid w) \propto P(w) \times S_i(u \mid w)$$
+
+In practice, however, this recursive process is usually capped at the $L_1$ and $L_2$ level (\todo{add reference. Franke and Degen?}) and in the models
+that I will consider in this dissertation, I will only consider models capped at the $L_1$ level.
+
+\todo{example}
