@@ -324,21 +324,18 @@ as a proper semantic representation.
 \section{The Rational Speech Act framework}
 
 The Rational Speech Act (RSA; \cite{GoodmanFrank2016}, see also \cite{FrankeJaeger2016}) framework provides a computational-level
-theory of how speakers choose utterances from a set of alternative utterances and how listeners interpret utterances. 
+theory of how speakers choose utterances from a set of alternative utterances and how listeners interpret utterances. The framework is
+a game-theoretic probabilistic formalization of Gricean \cite{Grice1975} pragmatic reasoning and casts interpretation of utterances as probabilistic Bayesian
+inference, following recent successes in Bayesian modeling of many cognitive processes (e.g., \cite{TenenbaumGrowingAMind}). 
 
-The framework can 
-be seen as a computational formulation of Gricean \cite{Grice1975} pragmatic reasoning. 
-
-\todo{proper intro}
-
-
-According to an RSA model, there are two types of agents: speaker agents $S$ and listener agents $L$. The goal of a speaker agent is to communicate
-a world state $w$ to a listener by choosing an utterance $u$ from a set of alternative utterances $U$; the goal of the listener agent is to infer the world 
+According to an RSA model, two types of agents engage in a communicate game: speaker agents $S$ and listener agents $L$. The goal of a speaker agent is to communicate
+a world state $w$ from a set of possible worlds $W$ to a listener by choosing an utterance $u$ from a set of alternative utterances $U$; the goal of the listener agent is to infer the world 
 state $w$ after hearing the utterance $u$. Speaker agents and listener agents reason about each other when choosing and interpreting utterances, leading to a
 recursive probabilistic reasoning process. Generally, as a base case of this recursive process, the lowest level is represented by a so-called literal listener $L_0$.\footnote{
 \todo{mention cases in which $S_0$ is the base case.}}
-The literal listener interprets an utterance probabilistically according to the semantic interpretation function $\sem{\cdot}$ of the utterance, 
-formally resulting in a distribution over world states $w$ given an utterance $u$.
+The literal listener interprets an utterance probabilistically according to a semantic interpretation function $\sem{\cdot}$ of the utterance, 
+resulting in a distribution over world states $w$ given an utterance $u$.\footnote{To keep the definitions compact, I omit the normalization terms from all definitions here. 
+Note, however, that all listener and speaker distributions are probability distributions and therefore always have to be normalized to sum to 1.}
 $$L_0(w \mid u) \propto P(w) \times 
 \begin{cases}
 1 & \mbox{if } w \in \sem{u} \\
@@ -353,7 +350,13 @@ in the following utility function $U$ and speaker distribution $S_1$.
 $$U(w,u) = \log L_0(w \mid u) - c(u)$$
 $$S_1(u \mid w) \propto \mbox{exp} \left( \lambda U(w,u) \right)$$
 $\lambda$ is a rationality (or temperature) parameter guiding how likely a speaker is to choose the optimal utterance. 
-Speaker choices are rational if $\lambda > 0$ and choices are increasingly optimal as $\lambda \rightarrow \infty$.
+Speaker choices are rational if $\lambda > 0$ and choices become increasingly optimal as $\lambda$ approaches $\infty$.
+
+\begin{figure}
+\center
+\includegraphics[width=.5\textwidth]{plots/faces-ad-hoc-implicature.png}
+\caption{\label{fig:faces-ad-hoc-imp}: Referents in ad-hoc implicature reference game.}
+\end{figure}
 
 At the next level, pragmatic listeners $L_1$ try to infer the world state that the speaker intended to communicate
 through Bayesian inference: $L_1$ integrates their prior beliefs about the state of the world $P(w)$ with the likelihood
@@ -366,7 +369,89 @@ $$U_i(w,u) = \log L_{i}(w \mid u) - c(u)$$
 $$S_i \propto \mbox{exp} \left( \lambda U_{i-1}(w,u) \right)$$
 $$ L_i(u \mid w) \propto P(w) \times S_i(u \mid w)$$
 
-In practice, however, this recursive process is usually capped at the $L_1$ and $L_2$ level (\todo{add reference. Franke and Degen?}) and in the models
-that I will consider in this dissertation, I will only consider models capped at the $L_1$ level.
+In practice, however, this recursive process is usually capped at the $L_1$ and $L_2$ level (\todo{add reference. Franke and Degen?}) and the models
+that I will consider in this dissertation are also all capped at the $L_1$ level.
 
-\todo{example}
+
+
+This recursive reasoning process implicitly models a Gricean counterfactual reasoning process in which listeners reason about alternative utterances
+that a speaker could have produced but didn't to interrpret To illustrate how this works, consider a simple reference game as shown in Figure~\ref{fig:faces-ad-hoc-imp}.\footnote{Example adapted from \cite{GoodmanFrank2016}.} In this game,
+there are three faces: one without any accessories (\textbf{n}), one with glasses (\textbf{g}), and one with glasses and a hat (\textbf{gh}). A speaker chooses one of the three faces
+and tries to communicate her choice to the listener through an utterance $u$. In this contrived example, let us assume that the only three possible utterances that the
+speaker can choose from are $U=\{\mbox{\textsc{face}: My friend has a face},\mbox{\textsc{glasses}: My friend has glasses},$ $\mbox{\textsc{hat}: My friend has a hat}\}$, 
+and that the listener is aware that the speaker can only choose from these three utterances. Speakers tend to show the following behavior in this game. If they refer
+to \textbf{n}, they produce \textsc{face}, if they refer to \textbf{g}  they produce \textsc{glasses}, and if they refer to \textbf{gh} they produce \textsc{hat}. Conversely, listeners infer that 
+the speaker likely referred to \textbf{n} after hearing \textsc{face}, to \textbf{g}  after hearing \textsc{glasses}, and to \textbf{gh} after hearing \textsc{hat}.
+
+An RSA model rooted at a literal listener $L_0$ with a pragmatic speaker $S_1$ and a pragmatic listener $L_1$ captures this behavior. In this game, 
+the semantic interpretation function $\sem{\cdot}$ is defined as:
+
+\begin{center}
+\begin{tabular}{c | c } 
+$u$ & \sem{u} \\ \midrule
+\textsc{face} & $\{\mathbf{n}, \mathbf{g} , \mathbf{gh}\}$  \\
+\textsc{glasses} & $\{ \mathbf{g} , \mathbf{gh}\}$ \\
+\textsc{hat} &$\{\mathbf{gh}\}$ \\
+\end{tabular}
+\end{center}
+
+\noindent Computing the distributions for $L_0 (w\mid u)$ -- if we assume uniform priors over the three referents -- then results in:
+
+\begin{center}
+\begin{tabular}{c | c | c | c} 
+$u$ & $L_0( \mathbf{n} \mid u)$ &  $L_0( \mathbf{g} \mid u)$ &  $L_0( \mathbf{gh} \mid u)$ \\ \midrule
+\textsc{face} & $\frac{1}{3}$ & $\frac{1}{3}$ & $\frac{1}{3}$  \\
+\textsc{glasses} &0  & $\frac{1}{2}$ & $\frac{1}{2}$  \\
+\textsc{hat} & 0 & 0 & 1 \\
+\end{tabular}
+\end{center}
+
+\noindent At the two extremes, $L_0$ thus chooses a face at random after hearing \textsc{face}, which is true about all three 
+faces but it will always choose \textbf{gh} after hearing \textsc{hat}, which is only true for \textbf{gh}. As I mentioned above, the
+pragmatic speaker $S_1$ then chooses an utterance by soft-maximizing their utility, which depends on the informativity of $u$
+to communicate $w$ to $L_0$ and the cost $c(u)$, which I assume to be 0 for all utterances in this example. If we further assume
+that the rationality parameter $\lambda=1$, then $S_1(u \mid w)$ is:
+
+\begin{center}
+\begin{tabular}{c | c | c | c} 
+$w$ & $S_1( \textsc{face} \mid w)$ &  $S_1( \textsc{glasses} \mid w)$ &  $S_1( \textsc{hat} \mid w)$ \\ \midrule
+\textbf{n} & 1  & 0 & 0  \\
+\textbf{g} &$\frac{2}{5}$  & $\frac{3}{5}$ & 0  \\
+\textbf{gh} & $\frac{2}{11}$ & $\frac{3}{11}$ & $\frac{6}{11}$ \\
+\end{tabular}
+\end{center}
+
+\noindent This speaker model qualitatively predicts the behavioral data from forced choice production experiments \cite{GoodmanFrank2016}: for all three
+referents the most likely utterance choice according to $S_1$ matches the most likely choice in the experimental data. However, this behavior could have
+also been predicted by purely symbolic counterfactual reasoning processes as outlined in \cite{Grice1975, Hirschberg1989}. The real advantage of this model 
+comes from the fact that it is a quantitative model and if one fits the rationality parameter $\lambda$ to the experimental data, one can also quantitatively predict 
+utterance choices in a population of participants.
+
+Finally, the pragmatic listener $L_1(w \mid u)$ can be used to predict the interpretation of utterances in this context. If we again assume that the prior over referents $P(w)$
+is uniform, $L_1$ is:
+
+\begin{center}
+\begin{tabular}{c | c | c | c} 
+$u$ & $L_1( \mathbf{n} \mid u)$ &  $L_1( \mathbf{g} \mid u)$ &  $L_1( \mathbf{gh} \mid u)$ \\ \midrule
+\textsc{face} & $\frac{55}{87}$ & $\frac{22}{87}$ & $\frac{10}{87}$  \\
+\textsc{glasses} &0  & $\frac{11}{16}$ & $\frac{5}{16}$  \\
+\textsc{hat} & 0 & 0 & 1 \\
+\end{tabular}
+\end{center}
+
+\noindent This listener model qualitatively predicts the behavioral data from the interpretation experiments, and once again one can quantitatively predict participants' proportions
+of choosing the three referents after hearing a given utterance by fitting the rationality parameter $\lambda$. 
+
+Predicting utterance choices and interpretations in this contrived example of an ad-hoc implicature may not seem particularly impressive. However, many subsequent works
+following the original RSA model have extended this basic model to predict a wide range of pragmatic phenomena, including predicting scalar inferences 
+\cite{GoodmanStuhlmuehller2013}, embedded implicatures \cite{Potts2016}, M-implicatures \cite{Bergen2016}, metaphors and hyperbole \cite{Kao2013,Kao2014,Kao2015}, 
+irony \cite{Kao,CohnGordon2019}, the use of gradable adjectives \cite{LassiterGoddman2015, QingFranke2014}, generics \cite{Tessler2019}, vague quantifiers 
+\cite{SchoellerFranke2017}, politeness \cite{Yoon2019}, social meaning\cite{Burnett2017}, and -- as I will discuss in more detail in the next chapter -- 
+to predict the use and interpretations of epistemic modals \cite{HerbstrittFranke2019}. While almost all of these models 
+introduce additional extensions to the model as presented here, they crucially all rely on the recursive Bayesian reasoning process outlined in this section,
+highlighting the versatility of models that cast pragmatic behavior as an instance of Bayesian reasoning.
+
+
+
+
+
