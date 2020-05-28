@@ -1081,7 +1081,7 @@ qud.plot = d.qud %>%
         axis.title = element_text(size=14),
         axis.text = element_text(size=12)) + 
   geom_errorbar(aes(ymin=rating_m - ci_low , ymax=rating_m + ci_high), width=5, size=1) +
-  scale_color_manual(values=c("#E6AB02", "#7CB637","#4C3B4D"))
+  scale_color_manual(values=c( "#7CB637", "#E6AB02","#4C3B4D"))
 
 ggsave(qud.plot, filename = plot_path("pre-test-qud.pdf"), width = 30, height = 12, units = "cm")
 

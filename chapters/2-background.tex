@@ -176,8 +176,8 @@ The semantics of sentences with necessity modals such as \textit{must} and possi
 can then be expressed in terms of $f$-necessity and -possibility:
 
 \begin{exe}
-\ex $\sem{\mbox{must }\phi}^{w,f} = 1 \mbox{iff $\phi$ is an $f$-necessity in $w$} $
-\ex $\sem{\mbox{might } \phi}^{w,f} = 1 \mbox{iff $\phi$ is an $f$-possibility in $w$} $
+\ex $\sem{\mbox{must }\phi}^{w,f} = 1 \mbox{ iff $\phi$ is an $f$-necessity in $w$} $
+\ex $\sem{\mbox{might } \phi}^{w,f} = 1 \mbox{ iff $\phi$ is an $f$-possibility in $w$} $
 \end{exe}
 
 The semantics of these expressions is equivalent to the classical modal logic semantics presented in (\ref{ex:modall-must})  and (\ref{ex:modall-might}), 
@@ -249,8 +249,111 @@ can come up with probability measures on the set of sets of possible worlds $\ma
 However, her discussion does not go beyond showing that a connection between event probabilities and possible worlds is possible and 
 her semantic account of modals leaves it open how speakers and listeners map modals to event probabilities.
 
-\subsection{Threshold semantics: Lassiter, Swanson, }
+\subsection{Threshold semantics}
 
+in recent years, there have been several proposals for an alternative semantics of epistemic modals based on the idea that the meaning of 
+epistemic modals is determined by the position of the probability of the embedded proposition on a probability scale
+\cite{e.g., Swanson2006,Yalcin2010,Lassiter2017}. The truth condition of utterances with epistemic modals is then determined by whether
+the probability of the embedded proposition exceeds some threshold $\theta_x$ associated with the modal $x$:
+
+\begin{exe}
+\ex $\sem{\mbox{must }\phi}^{w} = 1 \mbox{ iff $P(\phi) > \theta_{must}$ in $w$} $
+\ex $\sem{\mbox{might } \phi}^{w} = 11 \mbox{ iff $P(\phi) > \theta_{might}$ in $w$} $
+\ex $\sem{\mbox{probably } \phi}^{w} = 11 \mbox{ iff $P(\phi) > \theta_{probably}$ in $w$} $
+\end{exe}
+
+This account is inspired by accounts of gradable adjectives \cite{e.g., Kennedy2007} and the observation that many 
+epistemic modals are likely gradable adjectives. For example, \cite{Lassiter2017} argues that \textit{possible}, \textit{probable},
+\textit{likely}, and even \textit{certain} all behave in many regards like gradable adjectives: Similarly to gradable adjectives like \textit{tall}, 
+they can be used with degree modifiers  (\ref{ex:degree-mod}), and measure phrases (\ref{ex:measure-phrase}), and they can be part of comparative clauses (\ref{ex:comp-clause}).
+
+\begin{exe}
+\ex \label{ex:degree-mod} \begin{xlist}
+\ex Joan is \textbf{very} tall.
+\ex It is \textbf{very} probable that you'll win the lottery.
+\end{xlist}
+\ex \label{ex:measure-phrase} \begin{xlist}
+\ex Joan is \textbf{6ft} tall.
+\ex It is \textbf{70\%} likely that you'll win the lottery.
+\end{xlist}
+\ex  \label{ex:comp-clause}  \begin{xlist}
+\ex Joan is tall\textbf{er} than Bob.
+\ex That you'll get hit by lightning is \textbf{more} likely than that you'll win the lottery.
+\end{xlist}
+\end{exe}
+
+\noindent Because of this parallelism, threshold accounts, which have been successfully used to represent the meaning of gradable adjectives,
+can also be straightforwardly applied to graded or comparative epistemic modals. For example, the utterances in \ref{ex:degree-mod}b), 
+\ref{ex:measure-phrase}b), and (\ref{ex:comp-clause}b)
+can be represented as follows.
+
+\begin{exe}
+\ex $\sem{\mbox{very probable } \phi}^w = 1 \mbox{ iff $P(\phi) \gg \theta_{probable}$ in $w$}$
+\ex$ \sem{\mbox{70\% likely } \phi}^w = 1 \mbox{ iff $P(\phi) = .7$  in $w$}$
+ \ex$ \sem{\phi \mbox{ more likely than } \psi}^w = 1 \mbox{ iff $P(\phi) > P(\psi) $  in $w$}$
+\end{exe}
+
+As the choice of examples in this section indicates, the arguments for this account are primarily
+based on observations concerning epistemic adjectives. Whereas the modal logic account and Kratzer's
+account focus on the meaning of epistemic auxiliaries and much less on observations concerning
+epistemic adjectives and adverbs, threshold accounts put epistemic adjectives and adverbs front and center
+and treat auxiliaries more as an afterthought. Given that auxiliaries are generally not gradable, it
+might appear surprising to assume a threshold semantics for auxiliaries. However, beyond the fact
+that a unified account leads to a simpler theory, there is also the argument that 
+epistemic adjectives and auxiliaries can be used in the same 
+utterance to strengthen the meaning.
+
+\begin{exe}
+\ex You might win the lottery but you probably won't.
+\end{exe}
+
+\noindent It would be strange to assume that \textit{probably} in this utterance expresses
+that the probability of not winning the lottery exceeds some threshold but that \textit{might}
+does not make any reference to an event probability.
+
+One other question this account raises, is how to set the thresholds. For modals such as \textit{probably} that describe
+event probabilities that are clearly not at either end of the probability space, there is agreement that the threshold is
+to at least a certain extent context-dependent. For example, in the case of a coin flip with two possible outcomes
+the threshold will most likely be above .5.
+
+\begin{exe}
+\ex The coin will probably land on tails.
+\end{exe}
+
+\noindent It would be unexpected for a speaker to produce this utterance if the probability of the coin landing on tails was actually
+below .5 and it would be more likely for the coin to land on heads. However, when there are more outcomes, the threshold can be lower.
+For example, \cite{Teigen1988} asked participants 10 days before the 1986 Eurovision Song Contest finals to estimate the chances of winning for 
+20 contestants using the responses \textit{probable}, \textit{not probable}, and \textit{neither probable nor improbable}.  He found that no subject
+used \textit{probable} only once, which -- given that participants could have only assigned a winning probability of more than .5 to at most one of the contestants --
+indicates that participants also endorsed the statement for event probabilities less than .5. In part, this result was likely driven by the very limited response options
+in this forced choice production experiment but later work has also found that participants use different uncertainty expressions to describe an event depending on the
+alternative outcomes and that, for example, likely is sometimes also used to describe event probabilities lower than .5 \cite{e.g.,  WindshitlandWells1998}.
+%\footnote{Note though that unlike what \cite{Yalcin2010} claims, \cite{WindshitlandWells1998} never ran an acceptability study of  statements like ``Bloggs is probably the winner..."}
+
+For auxiliaries, on the other hand, there is less agreement about whether the threshold should be context-sensitive. \cite{Yalcin2010} argues
+for a probabilistic version of existential and universal quantifications such that the thresholds for \textit{might} and \textit{must} are 0 and 1, respectively.
+\cite{Swanson2006}, on the other hand,  argues for \textit{might} and \textit{must} being duals, that is that the threshold for \textit{might}, $\theta_{might}$, 
+and the threshold for \textit{must}, $\theta_{must}$, both depend on a single parameter $\mu$ such that  $\theta_{might} = \mu$ and  $\theta_{must} = 1 - \mu$. 
+He further argues for a weak interpretation of epistemic must that implies a threshold below 1, and consequently a $\mu > 0$, which in return also implies
+that  \textit{might} is only true for probabilities greater than $\theta_{might} = \mu > 0$. Based on data from truth value judgement tasks, \cite{Lassiter2017} 
+more generally argues that the thresholds for \textit{might} and \textit{must} are context-sensitive and generally greater than 0 and smaller than 1, respectively. 
+He also considers \textit{might} and \textit{must} as being duals and takes the result that participants sometimes rejected statements with \textit{might} for very low
+event probabilities as evidence for the possibility of \textit{might} using a threshold greater than 0 and for \textit{must} having a weak interpetation.
+In summary, there exist three proposals for the thresholds of epistemic auxiliaries: a) treating \textit{might} and \textit{must} as duals and assuming a strong interpretation
+of \textit{must} \cite{Yalcin2010}; b) treating them as duals and assuming a weak interpretation of \textit{must} \cite{Swanson2006}, and c) treating \textit{might} and
+\textit{must} as duals and assuming context-sensitive thresholds \cite{Lassiter2017}. I will discuss this issue in much more detail in the subsequent chapters.
+
+Finally, we can again ask whether this representation can predict how language users map event probabilities to uncertainty expressions.
+This account is based on probabilities and therefore does make predictions about this mapping. However, given that uncertainty expressions
+only have a lower bound, this theory by itself does not predict why a speaker would produce \textit{probably} instead of \textit{might} when there is
+a high event probability, or why a speaker would produce \textit{certainly} instead of \textit{possibly} when the event probability is 1, since
+in either case both expressions are true. As has been demonstrated by \cite{HerbstrittandFranke2019} and as I will also show in the next chapter, this
+issue can be easily reconciled by adding a pragmatic machinery on top of a threshold semantics that predicts that speakers will prefer more informative
+utterances. 
+
+To conclude this section, while the question of how thresholds should be set has not been fully settled, this account has -- unlike the two previous accounts that i presented 
+--  the advantage of directly linking event probabilities to uncertainty expressions and being able to make predictions about ranges of event probabilities for which different
+uncertainty expressions can be used.
 
 \section{Verbal probability expressions}
 
@@ -368,6 +471,8 @@ reason about their respective counterpart agents one level below $i-1$ the curre
 $$U_i(w,u) = \log L_{i}(w \mid u) - c(u)$$
 $$S_i \propto \mbox{exp} \left( \lambda U_{i-1}(w,u) \right)$$
 $$ L_i(u \mid w) \propto P(w) \times S_i(u \mid w)$$
+
+\todo{mention IBR}
 
 In practice, however, this recursive process is usually capped at the $L_1$ and $L_2$ level (\todo{add reference. Franke and Degen?}) and the models
 that I will consider in this dissertation are also all capped at the $L_1$ level.
