@@ -492,6 +492,8 @@ around $\theta=1$ and $\theta=0$, respectively.\footnote{Note that since the neg
 all the other utterances that we are are considering in this paper, $\theta$ is a lower threshold.} As  Figure~\ref{fig:threshold-distributions} shows, this is indeed what
 the inferred threshold distributions look like. 
 
+\todo{update the following paragraphs}
+
 The probability mass of the threshold distribution for \textit{might} is  concentrated at values slightly above 0. This, too, 
 is in line with non-probabilistic accounts of the interpretation of epistemic modals. These accounts generally assume that \textit{might} $p$ is true 
 if there exists a world $w$ in a set of (contextually restricted) epistemically accessible worlds $E$ such that $p$ is true in $w$ 
@@ -532,7 +534,149 @@ are relatively likely to choose an optimal utterance (reflected in the $\lambda$
 greater than 1); that utterances that are not included in the experiment incur a considerable cost  (reflected in the $\gamma$ parameter being greater than 1); that about 7.4\%
 of the data should be treated as noise (reflected in the $\delta$ parameter); and that the production probability of utterances not included in our set of utterances is low. 
 
-\subsection{Interim summary}
+\section{General Discussion}
+
+\todo{write intro paragraph}
+
+\subsection{Implications for semantic theories of modals}
+The results from the experiments and the models provide several interesting new data points about the use
+of epistemic modals that can be used to evaluate different theories of epistemic modality. First, the inferred threshold 
+distributions for \textit{might} and \textit{could} differ such that the distribution for \textit{could} assigns higher probabilities 
+to higher values than the distribution for \textit{might}, and both of these distributions assign some probability mass to thresholds
+greater than 0. Second, the inferred threshold distribution
+for \textit{probably} assigns some probability to values below .5. Third, both the data
+and the inferred model parameters suggest that expectations about the use of epistemic modals are graded; for some
+event probabilities certain modals are more expected to be produced by a generic speaker than for other probabilities,
+and in only few cases, participants assigned all 100 points to a single utterance Fourth, the expressed expectations varied 
+depending on the presented alternatives. For example, \textit{might} was expected to be used to describe higher event probabilities 
+when it was paired with the bare form than when it was paired with
+\textit{probably}.
+
+
+ To what extent are these observations compatible with the two most prominent accounts of epistemic modals -- Kratzer's \cite{Kratzer2012}
+account and a threshold semantics account \cite{Lassiter2017,Swanson2006,Yalcin2010} -- and to what extent are these findings 
+compatible with the proposal to use membership functions to predict the use of uncertainty expressions \cite{Wallssten}?
+
+\paragraph{Kratzer's account.} Kratzer's account makes several assumptions and predictions that are challenged by these findings. Recall that she assumes that epistemic \textit{could} and
+\textit{might} are semantically equivalent and that utterances with these modals are true if there is a contextually restricted epistemically accessible
+world in which the embedded proposition is true. Given that the inferred threshold distributions suggest that \textit{could} is more informative than \textit{might},
+the assumption of semantic equivalence does not necessarily hold. In her defense, however, if \textit{could} was clearly more informative than \textit{might},
+we would not expect that (\ref{ex:might-could-informativity}) sounds like a contradiction since the same sentence is acceptable if we replace \textit{could} with
+a considerably more informative expression such as \textit{probably} (\ref{ex:might-probably-informativity}).
+
+
+\begin{exe}
+\ex \label{ex:might-could-informativity} \# You might get a blue gumball but it is not the case that you could get a blue one.
+\ex \label{ex:might-probably-informativity} You might get a blue gumball but it is not the case that you'll probably get a blue one.
+\end{exe}
+
+\noindent One hypothesis for the unacceptability of (\ref{ex:might-could-informativity}) that is compatible with my findings is
+that the unacceptability is caused by the large overlaps between the expectations about thresholds for \textit{might} and \textit{could}. 
+Since the expectations about threshold for these two expression are very similar and therefore there is a 
+high expectation of them being the same or even the threshold for \textit{could} being lower than \textit{might}, this sentence
+indeed constitutes a contradiction according to many speaker models and  because of that it could seem generally unacceptable.
+This issue merits more investigation but as it stands,  the inferred distributions as well as the experimental data from all conditions
+that probed expectations about \textit{might}, \textit{could}, or both all suggest that \textit{could} is more informative than \textit{might}, which is not
+predicted by this account.
+
+The second challenge for Kratzer's account is that \textit{might} and \textit{could} have expected thresholds greater than 0.
+It seems likely that all worlds in which the girl gets one of the gumballs are among best epistemically accessible worlds 
+and therefore one would expect that as long as the probability of getting a gumball in desired color is greater than 0, \textit{might} 
+and \textit{could} should be true. However, the threshold distributions for both of these utterances suggest that participants only
+expect these two expressions to be true when the event probability is considerably above 0. Under Kratzer's account it remains unclear
+why participants have generally very low expectations (or even no expectations) of the speaker to use \textit{might} and \textit{could}
+when there is a low but non-zero event probability.\footnote{It could be that this is an artifact of the provided alternatives and that participants gave
+low ratings to \textit{might} and \textit{could} for low event probabilities because they assumed that the speaker would produce more informative utterances
+involving negation such as \emph{It is unlikely that you'll get a blue/orange one} or \emph{You probably won't get a blue orange one}. However, this would still not explain
+the asymmetry between \textit{might} and \textit{could}. Further, participants were providing high ratings to utterances that were true but better described by alternative utterances not included
+in the response set in many other cases, so it seems unlikely that they would have provided low ratings for \textit{might} for very low event probabilities if they had considered 
+it to be likely true utterances in these situations.}
+
+Third, the fact that participants assigned non-zero ratings for \textit{probably} to be used to describe event probabilities smaller than .5 and that the
+inferred threshold distributions consequently also assign probability mass to values less than .5 is also not compatible with the assumption made by 
+Kratzer's account that \textit{probably} $\phi$ means that $\phi$ is a better possibility than not $\phi$ -- if the probability of getting a blue gumball is less than
+.5, then it is more likely to not get a blue gumball than to get a blue gumball.
+
+Without additional stipulations, Kratzer's account also does not explain the graded production expectations. However, this issue could be salvaged pretty easily
+by assuming that listeners are uncertain and have probabilistic beliefs about the relevant conversational background of the speaker. Kratzer herself argues for the possibility
+of listeners considering multiple conversational backgrounds (``More often than not, conversational backgrounds for modals remain genuinely underdetermined and what speakers intend to convey is compatible with several choices of conversational backgrounds.'' \cite{Kratzer2012,Ch2,p32}) and analogous to the beliefs about thresholds in the model above, one could also imagine that listeners have
+beliefs about relevant conversational backgrounds.
+
+Finally, if combined with a model of pragmatic reasoning such as RSA, this theory is compatible with the varying ratings across alternatives. One could defined
+the literal listener $L_0$ based on the truth-conditions predicted by Kratzer's account and then have the pragmatic machinery as implemented by $S_1$ 
+predict the dependence on salient alternatives. 
+
+\paragraph{Threshold account.} Considering that the computational model above is based on a threshold semantics, 
+it is unsurprising that a threshold account is considerably more compatible with the empirical findings. It is out of the box compatible
+with different and non-zero thresholds for \textit{might} and \textit{could} and it is compatible with a threshold below .5 for \textit{probably}.
+
+As I mentioned in Chapter 2, there has been disagreement about the thresholds for \textit{might} with \cite{Yalcin2010} arguing in accordance with
+\cite{Kratzer1991} that \textit{might} should have a threshold of 0. My findings here, however, provide additional evidence for \cite{Lassiter2017}'s
+claim that \textit{might}'s threshold is greater than 0 and context-dependent.
+
+The experimental and modeling results also corroborate the theoretical arguments that \textit{probably} can have a threshold lower than .5. Surprisingly,
+I found this in a setting in which there are only two possible outcomes unlike the Eurovision Song Contest scenario and lottery scenarios discussed by \cite{Lassiter2017, Yacin2010, Teigen1988},
+suggesting that multiple outcomes are not necessary for the threshold being lower than .5.
+
+Further, concerning the graded ratings, I had to make the additional stipulation that listeners have probabilistic beliefs about a speaker's thresholds. 
+This further challenges \cite{Yalcin2010}'s assumption of a fixed threshold for \textit{might} but it is compatible with the assumption of context-dependent
+thresholds that \cite{Lassiter2017} argues for. While he did not spell out a complete pragmatic model of epistemic modals, he does argue that the computation 
+of thresholds could be akin to the RSA-based model of graded adjectives by \cite{LassiterGoodman} which also assumes that there are probabilistic beliefs about
+threshold distributions.\footnote{I am deviating from the \cite{LassiterGoodman2015} model, though, by assuming that each uncertainty expression  as an 
+associated non-flat threshold distribution whereas \cite{LassiterGoodman2015} assume that the threshold distribution is inferred through joint reasoning about the informativity of the utterance and the prior beliefs about the relevant scale.}
+
+Finally, as shown in the experimental results above, this account readily predicts the dependence of the ratings on the available alternatives.
+
+\paragraph{Membership functions.} Lastly, let me turn to the proposal to represent the mapping between uncertainty expressions and event probabilities
+as membership functions over the interval $[0;1]$ is compatible with the findings from each condition of the experiment, 
+if we consider each condition separately.  One could estimate functions  based on the 9 ratings for each uncertainty expression through, 
+for example, fitting splines or polynomial functions. This way one could represent any lower and upper thresholds, and membership functions 
+are out of the box compatible with the graded ratings that I observed in Experiment~1.
+
+However, one challenge for representing the mapping is that membership functions do not depend on the set of alternative utterances. Therefore,
+this account does not predict why the ratings for the same expression differ across conditions, e.g., why \textit{might} is rated higher for higher event probabilities in
+the \textit{bare-might} than in the \textit{bare-probably} condition. This issue would also persist if we combined the concept of membership functions with an RSA model such that the
+membership function would define the literal listener $L_0$ and production expectations and interprations in context would be predicted by the 
+pragmatic speaker $S_1$ and the pragmatic listener $L_1$, respectively. Note that membership functions also have an upper bound and if we set the upper bound for 
+the uncertainty expression $e$, $\beta_e$, to a value less than 1, then the model will predict that $e$ cannot be used to describe event probabilities greater than $\beta_e$.
+Ruling out the production of $e$ for some interval $[\beta_e; 1]$, however, is in tension with the experimental results that suggest that for all the positive utterances that I considered, 
+participants considered the likelihood of a speaker producing the utterance when there was an event probability of 1 to be greater than 0. To account for these results, we would therefore 
+have to set the upper thresholds of all expressions to 1, which reduces the membership function to a fuzzy threshold semantics. While \cite{Wallsten1986}'s 
+proposal does not rule out membership functions of that form, these functions would no longer represent what \cite{Wallsten1986} had intended as they would
+no longer represent how stereotypical an uncertainty expression is to express a certain event probability.
+
+\vspace{1em}
+
+\noindent In conclusion, also the post-hoc evaluation of various semantic theories suggests that the choice of representing the meaning of uncertainty expressions
+with a threshold semantics is compatible with all the empirical findings from Experiment~1, suggesting that when it comes to representing the mapping
+between uncertainty expressions and event probabilities, a threshold account combined with an RSA model and several additional stipulations
+ makes a number of correct predictions about expected use of uncertainty expression.
+
+\subsection{Variability and the ``illusion of communication''} 
+
+The results from Experiment~1 also challenge the idea of the ``illusion of communication'' \cite{Budescu2009} in the use of uncertainty expressions
+to communicate event probabilities. \cite{AmerHackenbrackNelson1994, BrunTeigen1988, TeigenBrun1999} all argued that listeners are oblivious 
+to the variability of use and are therefore not even considering the possibility that a speaker's use of uncertainty expressions could be different from their own.
+However, in my experiments, I found that participants exhibited uncertainty and that they considered a lot uncertainty expressions to be possibly used
+for a large range of event probabilities, suggesting that participants are aware that an unknown generic speaker could use uncertainty expressions
+differently from how they would use them.
+
+I can only speculate about why my findings suggest the opposite than previous findings but I consider it likely that the experimental task
+had an effect on participants' behavior. In previous experiments,
+participants indicated their beliefs about variability by selecting a lower and upper bound. These bounds were supposed to represent the lowest
+and highest event probability for which any speaker would use a given uncertainty expression and the general finding is that the ranges provided
+by individual participants are much narrower than the variability observed in interpretations across participants. However, by forcing 
+participants to choose fixed-point lower and upper bounds, participants inevitably had to express their likely probabilistic beliefs about the use
+of uncertainty expression in a deterministic way and it could be for example, that participants' ranges excluded event probabilities that were 
+unlikely but still possible according to participants' beliefs. In the experiment above, on the other hand, participants had an explicit way of
+expressing uncertainty and therefore did not have to transform beliefs into a deterministic range, which allowed them to indicate their full range
+of beliefs. 
+
+Looking ahead, while adaptation does not require that listeners are actively aware of existing variability, the finding in Experiment~1 that they are
+aware of it makes it more likely that listeners would also try to adapt to variable uses in some way. Whether and how listeners do this 
+will be the focus of the next chapter.
+
+\section{Chapter summary}
 
 In this section, we described a computational model of production expectations of uncertainty expressions. This model
 is couched within the RSA framework and assumes that listeners hold beliefs about a speaker's lexicon (in the form
