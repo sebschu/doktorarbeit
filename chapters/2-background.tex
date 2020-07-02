@@ -36,7 +36,7 @@ from this experiment was that language users store detailed episodes of perceive
 listeners changed their production behavior such that it matched more closely the behavior of the speaker whose productions they had heard during the exposure phase.
 
 %had a pre-test phase
-\cite{Norris2003} conducted a series of exposure-test 
+\cite{Norris2003} conducted a series of exposure-test phonetic adaptation
 experiments investigating whether listeners could shift their perceptual boundaries between phonemes. Their exposure phase
 consisted of a lexical decision task; on each trial, Dutch participants listened to a recording and were asked to respond whether
 what they heard constituted a Dutch word or not. The recordings varied depending on the condition. In the /f/-biased condition,
@@ -281,7 +281,7 @@ for example, in a re-analysis of a visual-world eye-tracking experiment to inves
 
 This expectation-based learning behavior is predicted by the connectionist models that I discussed here. Connectionist models, however, are not the only models predicting expectation-based learning, and I will discuss in the next section a class of models based on Bayesian belief updating that make similar predictions as the RNN-based models and have been used to model a wider range of partner-specific language behavior.
 
-\paragraph{Bayesian belief updating.} A separate line of work focused on modeling several partner-specific linguistic behaviors using computational models within 
+\paragraph{Bayesian belief updating adaptation models.} A separate line of work focused on modeling several partner-specific linguistic behaviors using computational models within 
 the framework of rational analysis \cite{Marr1982,Anderson1990}. Rational analysis models are less concerned with the exact properties of representations as 
 compared to the above discussed episodic memory and alignment accounts, but insetad are intended to formalize the optimal behavior of a cognitive agent to achieve 
 precisely specified goals. In this vein, one successful method of formalizing cognitive processes has been to implement them as probabilistic programs and assume that learning
@@ -363,8 +363,8 @@ regarding behavior and processes, there are many important questions that have o
 that tried to address these questions, and how the question and the results relate to the accounts and models of partner-specific behavior that I discussed above.
 
 \paragraph{Partner-specific vs. local context adaptation.} One of the most important questions concerning partner-specific behavior has been whether these processes are in fact
-partner-specific or whether language users simply update their behavior in a local context and then abandon their partner-specific behavior once they interact with another interlocutor.
-The question of partner-specificity has been most extensively studied in the domain of phonetic adaptation. \cite{EisnerMcQueen2005} extended the research by \cite{Norris2003} and
+speaker-specific or whether language users simply update their behavior in a local context and then abandon their partner-specific behavior once they interact with another interlocutor.
+The question of speaker-specificity has been most extensively studied in the domain of phonetic adaptation. \cite{EisnerMcQueen2005} extended the research by \cite{Norris2003} and
 investigated whether perceptual boundaries between the fricatives /f/ and /s/ were speaker-specific. They found no adaptation effects when the speaker producing the fricatives in the 
 test phase (a categorical perception task) was different from the speaker in the exposure phase (a lexical decision task with Dutch words). \cite{KraljicSamuel2006}, 
 on the other hand, found that updated perceptual boundaries between the stops /d/ and /t/ persisted even when the exposure and test speaker differed, suggesting that phonetic adaptation to stop consonants
@@ -377,7 +377,11 @@ who also found speaker specific adaptation to vowels which again provide a lot o
 
 At the syntactic level, \cite{Kamide2012} found speaker-specific adaptation to attachment preferences but as mentioned above, these effects failed to replicate \cite{Liu2017}. Further, 
 \cite{OstrandFerreira2019} systematically investigated whether structural alignment is bound to the speaker identity and while they were able to replicate many known structural 
-alignment effects, they found no speaker-specific alignment in any of her five studies. Taken together, it therefore seems that partner-specific syntactic behavior is not speaker-specific.
+alignment effects, they found no speaker-specific alignment in any of her five studies. \cite{Krozcek2017}, on the other hand, found speaker-specific effects in an exposure-test experiment in which
+participants learned word order preferences of two German speakers. When asked to interpret sentences in which the determiners had been replaced by white noise leading to utterances
+without case information for the subject and the object noun phrases, participants were more likely to interpret the sentence according to an SVO parse if produced by a speaker who showed such a preference
+during exposure, and more likely to interpret the sentence according to an OSV parse if produced by another speaker who showed the opposite preference during exposure.Taken together, it therefore seems that 
+partner-specific syntactic behavior is rarely partner-specific but can be in some instances.
 
 At the semantic/pragmatic level, \cite{BrennanClark1996} found some evidence for speaker-specific behavior: in repeated reference games, speakers were more likely to 
 change the referring expression when their interlocutor changed during the experiment than when the interlocutor remained the same. \cite{MetzingBrennan2003} further
@@ -389,10 +393,10 @@ two interlocutors communicate and do not occur when participants listen to recor
 
 In summary, the experimental evidence suggests that adaptation and other partner-specific behaviors are indeed speaker-specific for many, but not all, phonetic contrasts as
 well as for phenomena related to the interpretation of words or utterances. At the same time, at the level of syntax, there is only very little evidence for speaker-specific
-adaptation and it remains an open question whether there are cases in which listeners reliably learn speaker-specific preferences for specific syntactic structures or whether syntactic 
-adaptation is limited to aspects of the context other than the speaker. It further remains an open question why we find this selective adaptation behavior. \cite{OstrandFerreira2019} recently
+adaptation and it remains an open question  in which cases listeners reliably learn speaker-specific preferences for specific syntactic structures. 
+It further remains an open question why we find this selective adaptation behavior. \cite{OstrandFerreira2019} recently
 argued that adaptation might be guided by utility: in cases in which adaptation is useful for successful communication--such as adapting to certain pronunciations of words or to the meaning
-of referring expressions or quantifiers--listeners readily adapt, but in cases in which adaptation is not required for useful communication--such as learning speaker-specific syntactic preferences--
+of referring expressions or quantifiers--listeners readily adapt, but in cases in which adaptation is not required for useful communication--such as learning speaker-specific syntactic attachment preferences--
 listeners do not expend resources on adaptation. Further, as the results of selective phonetic adaptation suggest, listeners might also be aware of the structure in the variability, e.g., whether the speaker's
 identity explains some of the variance, and it could be that listeners only adapt to specific speakers if the average inter-speaker variability exceeds the intra-speaker variability.
 
@@ -403,15 +407,35 @@ the most recent speaker they interacted with, which is incompatible with the emp
 predict speaker-specific behavior but one could easily imagine to extend the recurrent units of a model such as the one by \cite{Cheng2006} to be able to link the speaker's identity to
 linguistic representations.
 
-\paragraph{Long-term vs. short-term effects.} 
+\paragraph{Long-term vs. short-term effects.} A second important question, in particular in the structural priming literature, has been whether 
+the observed effects constitute long-term learning or only persist for a short period of time. \cite{BockGriffin2000} and \cite{BockEtAl2007} found
+that structural priming effects persists over many intervening filler trials, suggesting that priming involves at least to some extent long term
+memory. At the same time, however, there are also priming effect that seem to diminish rapidly. For example, \cite{WheltonSmith2003} found
+in a production experiment, that participants were faster to produce a target utterance if they had been primed with an utterance having the same
+syntactic structure if the prime occurred immediately before the production trial, but they found no such speedup if the prime and test trial
+had intervening fillers.
 
-evidence from priming literature -- persists over many trials
+In the domain of syntactic adaptation, \cite{Krojcek2017} found that adaptation effects persisted for at least 24 hours. Participants
+who returned to a second experimental session on the next day had retained the associations between syntactic preferences and speakers
+that they learned in the first session. However, in a third session 9 months later, the adaptation effects had disappeared. Similarly, \cite{KaschakKuttaSchatschneider2010}
+found that cumulative structural priming effects persisted between two experimental sessions that had been one week apart.
 
-phonetic adaptation \cite{XieEarleMyers2019}; 
+In phonetic adaptation, there is more of a consensus that adaptation effects persist for longer period of times. For example, the adaptation study by \cite{BradlowBent2007}
+involved two sessions and listeners retained what they learned in the exposure phase until the second session. Similarly, \cite{XieEarleMyers2019} also found 
+that adaptation effects persisted across two sessions separated by 12 hours.
 
-bradlow and bent (2008)
-
-kroczek 2017
+This question has been of great interest because different accounts of partner-specific linguistic behavior make different predictions about long-term effects.
+Episodic memory accounts predict that effects should persist over long periods of time, though as with any memory system there may be eventual memory decay. Connectionist
+implicit learning models also predict long-term behavior and in fact, \cite{Chang2006} demonstrated that their model closely predicts human behavior from experiments with filler trials
+in between priming and test trials. Bayesian adaptation models qua purely computational models \cite{Marr1982} do not make any specific predictions about the structure and properties of memory
+ but they do generally stipulate that speaker-specific beliefs are maintained indefinitely and thus also predict long-term effects.  
+ 
+ Alignment accounts, however, do not predict long-term effects. This is because one core assumption
+of these accounts is that partner-specific behavior is a result of \textit{recently} activated representations and that this activation rapidly decreases, especially once a language user
+processes additional utterances or encounters new speakers, which means that any partner-specific behavior should also be short-lived. Considering the considerable evidence 
+for long-term priming and adaptation, one therefore may be inclined to dismiss the alignment account altogether. However, as \cite{FerreiraBock2006} argue, there are effects of structural priming
+such as facilitation of production \cite{WheltonSmith2003}, which rapidly disappear and therefore priming and other partner-specific behavior may be a result of both long-term learning as well as 
+short-term activation.
 
 \paragraph{Mechanistic vs. context-sensitive learning.}
 
@@ -814,7 +838,7 @@ in either case both expressions are true. As has been demonstrated by \cite{Herb
 issue can be easily reconciled by adding a pragmatic machinery on top of a threshold semantics that predicts that speakers will prefer more informative
 utterances. 
 
-To conclude this section, while the question of how thresholds should be set has not been fully settled, this account has -- unlike the two previous accounts that i presented 
+To conclude this section, while the question of how thresholds should be set has not been fully settled, this account has -- unlike the two previous accounts that I presented 
 --  the advantage of directly linking event probabilities to uncertainty expressions and being able to make predictions about ranges of event probabilities for which different
 uncertainty expressions can be used.
 
