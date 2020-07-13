@@ -1,17 +1,14 @@
-intro: we interact with different speakers everyday
+Speakers vary in their language use at all linguistic levels. This is most obvious at the phonetic level, since we constantly encounter speakers with different accents than our own and who consequently pronounce words differently from us. But this variation also exists at other levels. For example, at the level of syntax, different speakers show different preferences for syntactic alternations such as the frequency with which they use passive constructions \cite{Weiner1983}. Or at the word level, different speakers use words differently and--to take a stereotypical example--the comment \textit{``The movie was good.''} by an overly enthusiastic American person is generally intended to convey a worse opinion than the same utterance by a British person.
 
-different speakers vary in their productions across all linguistic levels -- give examples
+This variability is at odds with the observation that successful communication is nevertheless possible most of the time. Unless a speaker has a very strong accent which a listener had not been previously exposed to, or a speaker uses many words in a very unexpected manner, listeners tend to be able to comprehend the utterances of our interlocutors. The ease of communication with interlocutors whose language use differs from their own suggests that listeners are equipped with a very dynamic comprehension system that can easily be adjusted to novel speakers, rather than processing utterances according to their own egocentric linguistic system.
 
-how does communication still work -- listeners adapt and learn models of specific speakers
+In theory there are multiple possibilities of how such a dynamic comprehension system could work. For example, it could be that listeners \textit{normalize} the linguistic input prior to interpreting utterances such that any variability is removed before interpretation \cite{e.g,NewmanSawusch1996}. It could also be that listeners constantly \textit{fine-tune} their linguistic representations such that they match the representations of their interlocutors \cite{e.g, PickeringGarrod2004}. However, an increasing body of research suggests that listeners \textit{adapt} to specific speakers and learn-speaker specific language models that enable comprehension of utterances by speakers who vary in their productions \cite{Norris2003,Kraljic2007,Bradlow2008, Kamide2012,Kleinschmidt2015,Fine2016,Roettger2018}. The learning is driven by the statiscal input -- by tracking speaker-speci?c statistics, listeners can estimate accurate generative models of a speaker, i.e., models predicting how a speaker would pronounce a word or what a speaker would say in different contexts, which in return can lead to more accurate comprehension processes.
 
-By tracking speaker-speci?c statistics, listeners can estimate accurate generative models of a speaker, i.e., models predicting what a speaker would say in different contexts, which in return can lead to more accurate inferences of the world state that a specific speaker intended to communicate.
-
-
-
+As I discuss in more detail in Chapter 2, there have been many experiments and considerable modeling work investigating the properties of adaptation processes in phonetics and syntax. At higher levels such as semantics and pragmatics, however, we still know a lot less about the extent to which listeners adapt or the associated cognitive processes. In this dissertation, I therefore investigate the extent of semantic-pragmatic adaptation through multiple experiments as well as the adaptation processes through computational modeling experiments. 
 
 \section{Why adapt?}
 
-In our daily lives, we interact with many different speakers, either truly interactively in conversation or more passively when watching TV, listening to audio or video recordings, or consuming other types of media. Thus, if as listeners, we constantly adapt to all the speakers we encounter and update speaker-specific expectations, we have to keep track of considerable amounts of information. This process clearly incurs some cost, which raises the question what the benefits of adaptation are, and whether the benefits outweigh the cost. I will not be able to answer the latter question since I can neither quantify the 
+Before, I turn to the specific research questions and experiments, let me explain why it is beneficial for listeners to adapt. We interact with many different speakers in our daily lives -- either truly interactively in conversation or more passively when watching TV, listening to audio or video recordings, or consuming other types of media. Thus, if as listeners, we constantly adapt to all the speakers we encounter and update speaker-specific expectations, we have to keep track of considerable amounts of information. This process clearly incurs some cost, which raises the question what the benefits of semantic-pragmatic adaptation are, and whether the benefits outweigh the cost. I will not be able to answer the latter question since I can neither quantify the 
 the cost associated with adaptation nor quantify the utility of adaptation. However, to answer the first question, there exist clear benefits of semantic and pragmatic adaptation, including the following.
 
 First, at the semantic level, listeners will be able to better infer the intended speaker meaning if they know the speaker's mapping between words and world states. For example, if I know that a speaker only uses \emph{some} to refer to quantities greater than 3, I will be better able to narrow down the state of the world after hearing \emph{``I ate some of the cookies''} than I would have been able to if I had assumed that the speaker uses \emph{some} exactly the same way as I do, which for the sake of the example, let's say is to refer to quantities greater than 0. Similarly, differences in speaker and listener meaning become even more striking if my meaning of \emph{some} is narrower than the speaker's \emph{some}: If a speaker uses \emph{some} to refer to a quantity of 4 but my meaning of \emph{some} is limited to quantities greater than 5, I will infer a state of the world that is incompatible with the actual world. \todo{make figure?}.
@@ -90,17 +87,18 @@ In this dissertation, I investigate the extent of semantic and pragmatic adaptat
 the associated cognitive processes. That is, to what extent do listeners learn speaker-specific
 meanings of words; to what extent do listeners learn speaker-specific expectations of words,
 and to what extent does this speaker-specific knowledge affect interpretations of utterances? 
-And what are the cognitive processes that lead to this behavior?
+And what are the cognitive processes that lead to this behavior and what is the nature of the
+representations that are updated as a result of adaptation?
 
 In this enterprise, I focus on uncertainty expressions
 such as \emph{might} and \emph{probably}. Thus, all findings will only directly apply to 
 adaptation to variable use of uncertainty expressions. However, uncertainty expressions 
-belong to the much larger class of context-sensitive expressions -- a class of expressions for 
+belong to the much larger class of context-sensitive expressions, a class of expressions for 
 which it is generally assumed  that their interpretation crucially depends on contextually 
-specified parameters which -- as I will show in subsequent chapters --
-are also tied to the speaker's identity. Given the extensive research on the parallels between
+specified parameters which--as I will show in subsequent chapters--are
+also tied to the speaker's identity. Given the extensive research on the parallels between
 uncertainty expressions and other context-sensitive expressions such as quantifiers and
-gradable adjectives \cite{LassiterBook, SchoellerFranke?}, the results in this dissertation
+gradable adjectives \cite{Lassiter2016, SchoellerFranke2017}, the results in this dissertation
 should therefore also apply to any other types of context-sensitive expressions, and all
 the presented models could be easily extended to other classes of expressions. 
 
@@ -119,13 +117,26 @@ Thus, listeners would benefit from tracking  how a given speaker uses these expr
 
 \section{Structure of this dissertation}
 
-main points of this dissertation:
+In Chapter~2, I provide background on three topics that I repeatedly
+touch upon in the main part of the dissertation: partner-specific linguistic behavior, 
+the semantics of uncertainty expressions, and game-theoretic models of pragmatic reasoning.
+In Chapter~3, I present experiments that investigate how English language users expect a generic speaker
+to use uncertainty expressions, and I use this data to estimate the parameters of a computational model of 
+production expectations of a generic speaker. In Chapter~4, I then turn to several research questions concerning
+semantic-pragmatic adaptation. I first establish in experiments that listeners adapt to variable use of the uncertainty
+expressions \textit{might} and \textit{probably}. I then present a computational model of the adaptation process which
+is based on the generic speaker expectation model. This model allows me to run different adaptation simulations and
+to investigate the nature of representations that are updated during adaptation. I further discuss the predictions 
+of the model concerning the interpretation of uncertainty expressions after adaptation, and I validate these predictions
+in another experiment. In Chapter~5, I show that listeners can adapt to multiple speakers who use uncertainty expressions differently,
+and I discuss the implications for different models of generalization. In Chapter~6, I investigate to what extent the adaptation
+process can be modulated by non-linguistic factors and show that information about a speaker's mood both influences
+listeners' expectations before adaptation as well as their propensity to adapt. In Chapter~7, I discuss what the findings in this
+dissertation taken together tell us about semantic-pragmatic adaptation, and I outline promising future directions.
 
-* comprehension is an extremely flexible process 
+This dissertation is primarily focused on adaptation and therefore of primary interest to researchers studying linguistic adaptation.
+However, given that I also conduct many experiments probing the use of several epistemic modals, I also provide novel data points in Chapter~3
+for researchers interested in epistemic modality.
 
-* updated interpretations are guided by speaker expectations
 
-* meaning of uncertainty expressions is flexible
-
-* adaptation interacts in complex ways with other contextual factors (e.g., mood)
 
