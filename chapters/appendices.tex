@@ -3,7 +3,7 @@
 
 
 
-As mentioned in a footnote, we ran the norming studies in three batches using three slightly different procedures across conditions. We originally ran condition 0 (\emph{bare-might}) as a pilot condition. In the results, we noted that participants did not differ in their ratings depending on whether the girl asked for a blue or an orange gumball ($R^2(27)=0.997$ between mean ratings for blue and orange trials). To lower the number of trials, we therefore asked each participant to provide ratings for only one of the two colors (randomized across participants) for the next batch of conditions (conditions 1-14). We found that in some conditions, this led to small differences in ratings between participants who always rated utterances with \emph{blue} and participants who always rated utterances with \textit{orange} ($R^2(27)$ between $0.864$ and $0.984$). We hypothesize that this is a result of participants paying less attention if they were asked to do exactly the same task over and over again (in condition 0, the color and the associated utterances could change across trials). In order to verify the stability of our results, we replicated one of the conditions, condition 5 (\emph{might-probably}), and had participants provide two ratings for each color and gumball proportion. We found that despite the lower correlation between average ratings for utterances with \emph{blue} and utterances with \emph{orange} in the original run ($R^2(27)=0.929$), there was a very high correlation between the average ratings independent of the color of the original study and the average ratings of the replication ($R^2(27)=0.975$), which suggests that the average ratings largely do not depend on whether we ask participants to provide ratings for both colors or just one color. Nevertheless, we used the modified procedure in which we asked participants to provide 2 ratings for each color and gumball proportion for the last batch of conditions (conditions 15-20). In all conditions in which we asked people to provide ratings for utterances with both colors, the correlation between average ratings for utterances with \emph{blue} and utterances with \emph{orange} was almost perfect ($R^2(27)>0.988$).
+As mentioned in a footnote, I ran the norming studies in three batches using three slightly different procedures across conditions. I originally ran condition 0 (\emph{bare-might}) as a pilot condition. In the results, I noted that participants did not differ in their ratings depending on whether the girl asked for a blue or an orange gumball ($R^2(27)=0.997$ between mean ratings for blue and orange trials). To lower the number of trials, I therefore asked each participant to provide ratings for only one of the two colors (randomized across participants) for the next batch of conditions (conditions 1-14). I found that in some conditions, this led to small differences in ratings between participants who always rated utterances with \emph{blue} and participants who always rated utterances with \textit{orange} ($R^2(27)$ between $0.864$ and $0.984$). I hypothesize that this is a result of participants paying less attention if they were asked to do exactly the same task over and over again (in condition 0, the color and the associated utterances could change across trials). In order to verify the stability of our results, I replicated one of the conditions, condition 5 (\emph{might-probably}), and asked participants to provide two ratings for each color and gumball proportion. I found that despite the lower correlation between average ratings for utterances with \emph{blue} and utterances with \emph{orange} in the original run ($R^2(27)=0.929$), there was a very high correlation between the average ratings independent of the color of the original study and the average ratings of the replication ($R^2(27)=0.975$), which suggests that the average ratings largely do not depend on whether I ask participants to provide ratings for both colors or just one color. Nevertheless, I used the modified procedure in which I asked participants to provide 2 ratings for each color and gumball proportion for the last batch of conditions (conditions 15-20). In all conditions in which I asked participants to provide ratings for utterances with both colors, the correlation between average ratings for utterances with \emph{blue} and utterances with \emph{orange} was almost perfect ($R^2(27)>0.988$).
 
 
 
@@ -36,45 +36,45 @@ $$ES_1\left(u_e \mid \phi \right) = \int P(c) \int_0^1 P(\theta) S_1\left(u _e\m
 The reason for this is two-fold: First, there is no analytical solution for this integral, and second, since $S_1$ depends on
 thresholds for all uncertainty expressions $P(\Theta)$ is a multidimensional distribution which cannot be easily approximated.
 
-We solve this issue by introducing two approximations. First, we discretize the threshold distributions by distributing the probability mass
-of the Beta distributions across 20 equally-wide bins, resulting in a discrete probability distribution $P_{d}(\theta)$ (see \cite{Tessler2019} for a similar approach). Since all event probabilities for which participants had to provide ratings in the
-experiments were multiples of 5\%, we do not lose any accuracy and gain the advantage that we can now sum over a discrete probability space:\footnote{In our data analysis procedure, we assumed that the 
+I solve this issue by introducing two approximations. First, I discretize the threshold distributions by distributing the probability mass
+of the Beta distributions across 20 equally-wide bins, resulting in a discrete probability distribution $P_{d}(\theta)$ (see \cite{Tessler2019} for a similar approach). Since all event probabilities for which participants were asked to provide ratings in the
+experiments were multiples of 5\%, we do not lose any accuracy and gain the advantage that we can now sum over a discrete probability space:\footnote{In my data analysis procedure, I assumed that the 
 distribution over cost functions, $P(c)$, is a delta distribution which assigns all probability mass to the condition-specific cost function 
 $c(u, \mathscr{C})$ parameterized by the cost parameter $\gamma$. Since this implies that $P(c)$ is zero for all other cost functions, we can omit the integral and replace $c$ 
-with the condition-specific cost function, which we implicitly did here.}
+with the condition-specific cost function, which I implicitly did here.}
 $$ES_1\left(u_e \mid \phi \right) = \sum_{\theta} P_{d}(\theta) S_1\left(u _e\mid \phi, \theta, c\right)$$
 
 While this approximation can in theory be computed exactly, its computation remains intractable even 
-for the small number of utterances that we included in our model. Note that the discrete version of the
+for the small number of utterances that I included in the model presented above. Note that the discrete version of the
 vector of thresholds $\theta$ has one dimension with 20 possible values for each utterance, which implies
 there are $20^{|U|}$ possible assignments of $\theta$. This means for estimating parameters for 
-a model with 7 utterances, we would have to sum over $20^{7}=1.28 \times 10^9$ 
+a model with 7 utterances, I would have to sum over $20^{7}=1.28 \times 10^9$ 
 parameterizations of the pragmatic speaker model $S_1$ to compute the likelihood for one 
 sample of parameters in the BDA. 
 
-We solve this problem through another approximation, which exploits the fact that 
+I solve this problem through another approximation, which exploits the fact that 
 $S_1(u _e \mid \phi, \theta, c)$ only depends on the thresholds for uncertainty
-expressions other than $e$ for the normalization term. We approximate the normalization term by 
+expressions other than $e$ in the normalization term. I approximate the normalization term by 
 marginalizing over $\theta_e'$ and thus making $S_1'$ independent of all thresholds except $\theta_e$:
 $$\widetilde{S_1}(u_e \mid \phi, \theta_e, c) = \frac{exp \ \mathbb{U}(\phi, u_e, \theta_e, c) } { exp \ \mathbb{U}(\phi, u_e, \theta_e, c) + 
 \sum_{u_e' \ne u_e}{ \sum_{\theta_{e'}} P_d(\theta_{e'}) \  exp \ \mathbb{U}(\phi, u_{e'}, \theta_{e'}, c) } }, $$
-where $\mathbb{U}(\phi, u_e, \theta_e, c) = \log L_0(\phi \mid u_e, \theta_e) - c(u) $ is the speaker utility as defined in the main text.
+where $\mathbb{U}(\phi, u_e, \theta_e, c) = \log L_0(\phi \mid u_e, \theta_e) - c(u) $ is the speaker utility as defined in Chapter~3.
 
 
 
-This approximation allows us to define the following approximation of $ES_1$, which is tractable since we only have to sum over
+This approximation allows me to define the following approximation of $ES_1$, which is tractable since we only have to sum over
 all values of one threshold instead of all combinations of thresholds:
 $$\widetilde{ES_1}(u_e \mid \phi) \propto  \sum_{\theta_e} P_{d}(\theta_e) \widetilde{S_1}\left(u _e\mid \phi, \theta_e, c\right)$$
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{plots/fig-C1-approx-simulations.pdf}
-\caption{Predictions of exact and approximate expected pragmatic speaker model for different combinations of thresholds. The leftmost panels (uniform) shows predictions of both models if both utterances have uniform threshold distributions, i.e., threshold distributions with very high variance. The other panels show model predictions under the assumption that the utterances have the threshold distributions that we inferred in Section~3. \label{fig:approx-simulations}}
+\caption{Predictions of exact and approximate expected pragmatic speaker model for different combinations of thresholds. The leftmost panels (uniform) shows predictions of both models if both utterances have uniform threshold distributions, i.e., threshold distributions with very high variance. The other panels show model predictions under the assumption that the utterances have the threshold distributions that I inferred in Chapter~3. \label{fig:approx-simulations}}
 \end{figure}
 
 This approximation leads to identical results as $ES_1$ if each threshold distributions assigns all probability mass to one value, 
 i.e., if we have point estimates for thresholds. To assess how much $ES_1$ and its approximation, $\widetilde{ES_1}$ deviate when 
-the threshold distributions have non-zero variance, we performed several simulations, with different threshold distributions. For these
-simulations, we assume that there are only two possible utterances, which makes the computation of $ES_1$ tractable.
+the threshold distributions have non-zero variance, I performed several simulations, with different threshold distributions. For these
+simulations, I assume that there are only two possible utterances, which makes the computation of $ES_1$ tractable.
 
 Figure~\ref{fig:approx-simulations} shows the results of these simulations. As these plots show, the approximate model $\widetilde{ES_1}$ is a very close approximation of the expected
 pragmatic speaker model $ES_1$, which suggests that this approximation should only minimally affect our modeling results. 
@@ -103,12 +103,12 @@ Figures~\ref{fig:norming-results-model-1} and \ref{fig:norming-results-model-2} 
 \chapter[Original adaptation experiment]{Original production expectation adaptation experiment}
 
 
-We originally ran a different version of the production expectation experiment which included a potential confound because the number of utterances
-with each uncertainty expression was not matched across conditions. Qualitatively, this lead to the same results as Experiment~2 in the main text 
+I originally ran a different version of the production expectation experiment which included a potential confound because the number of utterances
+with each uncertainty expression was not matched across conditions. Qualitatively, this lead to the same results as Experiment~2 in Chapter~4
 but from this experiment, it remained unclear whether the different post-exposure ratings were a result of the different number of exposure trials
 across conditions or a result of listeners updating the mapping between uncertainty expressions and event likelihoods.  
 
-For transparency, we report the procedure and the results of the original experiment here. The procedure, materials and analyses were pre-registered at \url{https://osf.io/w926x/}.
+For transparency, I report the procedure and the results of the original experiment here. The procedure, materials and analyses were pre-registered at \url{https://osf.io/w926x/}.
 
 \section{Method}
 \subsection{Participants}
@@ -141,13 +141,13 @@ speaker conditions in this original experiment and  Experiments~2. Critical tria
 
 \end{table}
 
-\subsection{Exclusions} We excluded participants who provided incorrect responses to more than 3 of the attention checks. Based on this criterion, we excluded 11 participants in the \textit{confident speaker} condition and 8 participants in the \textit{cautious speaker} condition. None of the results reported below depend on these exclusions.
+\subsection{Exclusions} I excluded participants who provided incorrect responses to more than 3 of the attention checks. Based on this criterion, I excluded 11 participants in the \textit{confident speaker} condition and 8 participants in the \textit{cautious speaker} condition. None of the results reported below depend on these exclusions.
 
 
 \section{Analysis and predictions}  
 
-As in Experiment~2, we tested whether listeners updated their expectations after exposure by computing the difference between the AUC of the spline for 
-{\sc might} and of the spline for {\sc probably} for each participant. We predicted that the mean AUC difference would be larger in the 
+As in Experiment~2, I tested whether listeners updated their expectations after exposure by computing the difference between the AUC of the spline for 
+{\sc might} and of the spline for {\sc probably} for each participant. I predicted that the mean AUC difference would be larger in the 
 \emph{cautious speaker} condition than in the \emph{confident speaker} condition.
 
 \section{Results and discussion}
@@ -165,7 +165,7 @@ As in Experiment~2, we tested whether listeners updated their expectations after
 
 This experiment yielded the same results as Experiment~2. As the panels in Figure~\ref{fig:adaptation-results-prod-orig} show, participants updated their expectations about the speaker's language use and therefore made different predictions about how the speaker would use uncertainty expressions. In the \emph{cautious speaker} condition, participants gave high ratings for {\sc might} for a larger range of event probabilities than in the \emph{confident speaker} condition. On the other hand, participants gave high ratings for {\sc probably} for a larger range of gumball proportions in the \emph{confident speaker} condition than in the \emph{cautious speaker} condition. These differences result in a significantly larger AUC difference in the \emph{cautious speaker} condition than in the \emph{confident speaker} condition ($t(59) = 4.98$, $p < 0.001$, see also left panel of Figure~\ref{fig:adaptation-auc-prod-orig}).
 
-However, from these results it remains unclear whether listeners update their expectations about the mapping between uncertainty expressions and event likelihoods. In this experiment, the number of utterances with \textit{might} and \textit{probably} differed across conditions. It is therefore possible that participants only learned that the {\it cautious speaker} overall prefers to use {\it might} and the {\it confident speaker} prefers {\it probably}. To address this confound, we conducted Experiment~2 which is reported in the main text.
+However, from these results it remains unclear whether listeners update their expectations about the mapping between uncertainty expressions and event likelihoods. In this experiment, the number of utterances with \textit{might} and \textit{probably} differed across conditions. It is therefore possible that participants only learned that the {\it cautious speaker} overall prefers to use {\it might} and the {\it confident speaker} prefers {\it probably}. To address this confound, I conducted Experiment~2 which is reported in Chapter~4. 
 
 \chapter[Original adaptation experiment simulations]{Model simulations for original production expectation experiment}
 
@@ -184,13 +184,13 @@ cost \& threshold distributions & 1 &  0.809 \\
 
 
 Table~\ref{tbl:model-comparison-orig} shows the results of the model comparison  for the original production expectation experiment and  Figures~\ref{fig:post-exposure-model-original}, \ref{fig:post-exposure-thresholds-original}, and \ref{fig:post-exposure-costs-original} show the posterior predictions
-of the model simulations, the post-adaptation threshold distributions, and the post-adaptation costs, respectively. For these simulations, we took the MAP variance parameters that we estimated for the data from Experiment~2, so we did not fit any parameters to the data from the original production expectation experiment. In each condition, the model was exposed to the 20 utterances that participants were exposed to in the experiment (see left part of Table~\ref{tbl:materials-comparison}).
+of the model simulations, the post-adaptation threshold distributions, and the post-adaptation costs, respectively. For these simulations, we took the MAP variance parameters that I estimated for the data from Experiment~2, so I did not fit any parameters to the data from the original production expectation experiment. In each condition, the model was exposed to the 20 utterances that participants were exposed to in the experiment (see left part of Table~\ref{tbl:materials-comparison}).
 
-These modeling results further demonstrate the stability of the results reported in the main text. We again find that the \textit{cost \& threshold distributions} model predicts the post-exposure data best according to the posterior odds metric, and the inferred post-exposure threshold distributions and cost values exhibit the same patterns as we found in the simulations for Experiment~2. Not surprisingly, the inferred cost differences between \textit{might} and \textit{probably} are bigger in the present simulations for the original experiment reflecting that the exposure across conditions was not balanced. 
+These modeling results further demonstrate the stability of the results reported in Chapter~4. I again find that the \textit{cost \& threshold distributions} model predicts the post-exposure data best according to the posterior odds metric, and the inferred post-exposure threshold distributions and cost values exhibit the same patterns as I found in the simulations for Experiment~2. Not surprisingly, the inferred cost differences between \textit{might} and \textit{probably} are bigger in the present simulations for the original experiment reflecting that the exposure across conditions was not balanced. 
 
-However, as shown in Table~\ref{tbl:model-comparison-orig}, we also find that according to the $R^2$ metric, the model according to which listeners only update their beliefs about threshold distributions predicts the post-exposure
-behavior better than the  \textit{cost \& threshold distributions} model. While we generally expect the ranking of models to be the same according to both metrics, we explained in the main text that in our setup, multiple assumptions
-of the $R^2$ metric are violated and therefore, we do not consider the ranking of models according to the $R^2$ metric as evidence that listeners only update beliefs about threshold distributions -- especially given that in all other simulations, both metrics suggested that listeners update both types of representations.
+However, as shown in Table~\ref{tbl:model-comparison-orig}, I also find that according to the $R^2$ metric, the model according to which listeners only update their beliefs about threshold distributions predicts the post-exposure
+behavior better than the  \textit{cost \& threshold distributions} model. While we generally expect the ranking of models to be the same according to both metrics, I explained in Chapter~4 that in my setup, multiple assumptions
+of the $R^2$ metric are violated and therefore, I do not consider the ranking of models according to the $R^2$ metric as evidence that listeners only update beliefs about threshold distributions -- especially given that in all other simulations, both metrics suggested that listeners update both types of representations.
 
 
 
@@ -219,13 +219,13 @@ of the $R^2$ metric are violated and therefore, we do not consider the ranking o
 
 \chapter{Original interpretation experiment}
 
-As we mentioned in the main text, we originally ran a slightly different version of the comprehension experiment in which participants used sliders to rate which gumball machine they thought the speaker was describing. While the results were qualitatively the same as in the experiment reported in the main body of the paper, the use of sliders seemed to confuse some participants (see details below) and therefore we changed the procedure such that participants provided ratings by distributing coins. For transparency, we report the 
+As I mentioned in Chapter~4, I originally ran a slightly different version of the comprehension experiment in which participants used sliders to rate which gumball machine they thought the speaker was describing. While the results were qualitatively the same as in the experiment reported above, the use of sliders seemed to confuse some participants (see details below) and therefore I changed the procedure such that participants provided ratings by distributing coins. For transparency, I report the 
 procedure and the results of the original experiment here.
 
 \subsection{Method}
 \subsubsection{Participants}
 
-We recruited a total of 80 participants (40 per condition) on Amazon Mechanical Turk. We required participants to have a US-based IP address and a minimal approval rating of 95\%. Participants were paid \$2 which amounted to an hourly wage of approximately \$10--\$12. None of the participants had participated in any of the previous experiments. 
+I recruited a total of 80 participants (40 per condition) on Amazon Mechanical Turk. I required participants to have a US-based IP address and a minimal approval rating of 95\%. Participants were paid \$2 which amounted to an hourly wage of approximately \$10--\$12. None of the participants had participated in any of the previous experiments. 
 
 \subsubsection{Materials and Procedure}
 
@@ -242,16 +242,16 @@ by adjusting 9 sliders. Participants completed 6 test trials in total -- one for
 
 \subsubsection{Exclusions}
 
-We excluded participants who failed more than 2 out of 6 attention checks, which led to 2 exclusions in the \emph{cautious speaker} condition and 1 exclusion in the \emph{confident speaker} condition.
+I excluded participants who failed more than 2 out of 6 attention checks, which led to 2 exclusions in the \emph{cautious speaker} condition and 1 exclusion in the \emph{confident speaker} condition.
 
 
 \subsection{Analysis and Predictions}
 
-As for Experiment~3, we expected that listeners interpret a more confident speaker's utterance 
-to communicate a lower event probability than a more cautious speaker's utterance. We measured
+As for Experiment~3, I expected that listeners interpret a more confident speaker's utterance 
+to communicate a lower event probability than a more cautious speaker's utterance. I measured
 the interpretation of utterances by normalizing the ratings across the 9 gumball machines so that they sum to
 1 and then computing the expected value for the proportion of blue and orange gumballs. 
-We predicted that the expected values of target color gumball proportions after hearing {\sc might} and {\sc probably} 
+I predicted that the expected values of target color gumball proportions after hearing {\sc might} and {\sc probably} 
 were going to be larger in the \emph{cautious speaker} condition than in the \emph{confident speaker} condition.
 
 \subsection{Results and Discussion}
@@ -265,9 +265,9 @@ Figure~\ref{fig:adaptation-results-comp-orig} shows the aggregated and normalize
 
 This means that qualitatively, the results are the same as in Experiment~3. However, since participants had the option to assign high 
 ratings to 
-all gumball machines (they could assign a maximum rating to each gumball machine if they wanted to), we noticed that many participants assigned very high ratings to most gumball 
+all gumball machines (they could assign a maximum rating to each gumball machine if they wanted to), I noticed that many participants assigned very high ratings to most gumball 
 machines and therefore did not indicate their interpretation of the utterance. Further, it seemed that some participants
 understood the instructions as rating the likelihood of getting a target color gumball and provided ratings proportional to the 
-target color gumball proportion independent of the utterance. For these reasons, we revised the original paradigm as described
-in the main text and asked participants to indicate their interpretation using a limited set of coins, which appeared to be less
+target color gumball proportion independent of the utterance. For these reasons, I revised the original paradigm as described
+in Chapter~4 and asked participants to indicate their interpretation using a limited set of coins, which appeared to be less
 confusing for participants. 
