@@ -1,5 +1,8 @@
 %\documentclass[12pt,twoside]{report}
 \documentclass[12pt]{report}
+\usepackage[backend=biber,style=apa,autocite=inline]{biblatex}
+\addbibresource{references.bib}
+
 
 %% last modification is June 4, 2016, Emma Pease
 
@@ -21,6 +24,8 @@
  \usepackage{colortbl}
 \usepackage{color}
 \definecolor{LightGray}{gray}{0.92}
+%\usepackage[authoryear]{natbib}
+%\setcitestyle{authoryear}
 
 
 %tables
@@ -43,8 +48,11 @@
 \definecolor{PinkyPurple}{RGB}{178,0,178}
 \newcommand{\todo}[1]{\textcolor{PinkyPurple}{\textbf{[TODO: #1]}}}
 
-\renewcommand{\cite}[1]{[#1]}
-\newcommand{\parencite}[1]{[#1]}
+\renewcommand{\cite}[1]{\parencite{#1}}
+\newcommand{\egcite}[1]{\parencite[e.g.,][]{#1}}
+%\newcommand{\parencite}[1]{[#1]}
+
+%\setstretch{1}
 
 
 % default is now online June/2016 version
@@ -141,12 +149,12 @@
     \chapter{Conclusions}
     \include{chapters/7-conclusions}
 
-   \appendix
-    \include{chapters/appendices}
+    \printbibliography
+
     
-   %% appendix changes Chapter numbering from Arabic to Alphabetic
-%    \appendix
- %   \chapter{A Long Proof}
+    
+    \appendix
+    \include{chapters/appendices}
 
 
 
@@ -154,8 +162,7 @@
 %% for Bibliography I would recommend a separate .bib file (bibtex) instead of inline as here.
 %\nocite{astl2,perry1,pollardsag1}
 %\nocite{*}
-    \bibliographystyle{plain}
-    \bibliography{references}
+
 
 
 
