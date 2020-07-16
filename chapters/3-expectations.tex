@@ -127,8 +127,8 @@ to study listeners' adaptation to variable uses of uncertainty expressions.
 One potential issue with the experimental design is that participants could consider additional speaker goals
 beyond being informative. For example, given that the speaker is talking to a child, it could be that participants
 assume that he wants to be particularly encouraging and the the choice of his expressions is shaped by both informative
-and social goals \cite{Yoon2019}. To investigate whether this is the case, I therefore conducted additional exploratory experiments with
-the \emph{might-probably} expression pair in which I manipulated the question under discussion \cite{QUD; Robers1996} by manipulating 
+and social goals \cite{Yoon2018}. To investigate whether this is the case, I therefore conducted additional exploratory experiments with
+the \emph{might-probably} expression pair in which I manipulated the question under discussion \parencite[QUD;][]{Roberts2012} by manipulating 
 the utterance produced by the girl. In the \textsc{preference} condition, the speech bubble read \emph{``I want a blue/an orange one''} as in the experiment
 above. In the \textsc{dispreference} condition, the speech bubble instead read ``\emph{I \textbf{don't} want a blue/an orange one''}, indicating
 a dispreference by the girl for the color under discussion. In the \textsc{disjunction} condition, the speech bubble read 
@@ -186,7 +186,7 @@ the scalar inference from \textit{probably} to \textit{not certainly} when the o
  If the child infers from the use of \textit{probably} that it is not certain that she will get the undesired gumball, she might be somewhat hopeful
  that she could still get the desired gumball and will be more disappointed when she inevitably gets the undesired gumball. While this explanation
  is highly speculative, it is consistent with findings that social goals influence interpretations and expectations about productions of expressions
- that may give rise to scalar inferences \cite{Bonnefon, Yoon2019}.
+ that may give rise to scalar inferences \parencite{Bonnefon2009, Yoon2018}.
  
  To sum up this aside, these exploratory experimental results suggest that the QUD affects production expectations but importantly only to a very small
  extent. For this reason, I continue to use the child's request \emph{``I want a blue/an orange one''} in the subsequent adaptation studies, assuming that
@@ -357,7 +357,7 @@ indicates the proportion of random responses, that is, the proportion of respons
 over the three condition-specific responses $U'$. 
 
 The inclusion of the noise term is not crucial for fitting the data but it does improve model fit and
-is common practice in RSA models whose parameters are estimated from experimental data \cite[see][]{Herbstritt2019,Tessler2019}.
+is common practice in RSA models whose parameters are estimated from experimental data \parencite[see][]{Herbstritt2019,Tessler2019}.
 
 \end{itemize}
 
@@ -379,20 +379,20 @@ is the interval $[0,1]$ which corresponds to the exact range of possible values 
 The second reason for using Beta distributions is that, depending on the parameterization, 
 Beta distributions can take on very different shapes. This property is important because I am making
 the simplifying assumption that all utterances in my experiments have a threshold semantics.
-Such a semantics is commonly assumed for uncertainty expressions such as \textit{probably} \cite[e.g.,][]{Yalcin2010,Lassiter2016}, 
+Such a semantics is commonly assumed for uncertainty expressions such as \textit{probably} \egcite{Yalcin2010,Lassiter2016}, 
 but it is unconventional for bare assertions such as \textit{``You'll get a blue one''}, which are generally assumed to be  
 true only if the event is certain to happen, i.e., it has an event probability of 1. However, since Beta distributions can have a shape 
 like the distribution for \textsc{bare} in the upper right panel in Figure~\ref{fig:model-visualization}, the model has the capability to infer
 a semantics for the bare form that is almost equivalent to a traditional semantics of bare assertions. In this parameterization of the
 Beta distribution, most probability mass is assigned to values of $\theta$ close to 1, which is mathematically almost equivalent to
 a traditional semantics.\footnote{Alternatively, one can also see the threshold distribution for the bare form as a distribution over a verification parameter $\eta$ that governs 
-how certain a speaker has to be to utter a bare assertion \cite[see, e.g.,][]{Lewis1976,Potts2007,Davis2007,Moss2018}. Mathematically, my assumption of bare forms having a threshold
+how certain a speaker has to be to utter a bare assertion \parencite[see, e.g.,][]{Lewis1976,Potts2007,Davis2007,Moss2018}. Mathematically, my assumption of bare forms having a threshold
 semantics is equivalent to assuming that bare assertions are only true when a speaker's credence of the proposition exceeds the verification threshold $\eta$.}
 Therefore, using Beta distributions for the threshold distributions has the desirable effect of allowing me a unified treatment of all expressions included in the model. 
 
 \subsection{Parameter estimation}
 
-Given all the assumptions outlined above, the model has  $18$ parameters in total: A cost parameter $\gamma$, a rationality parameter $\lambda$, a noise strength parameter $\delta$, a constant corresponding to other utterances $O$, and for each utterance, Beta distribution parameters $\alpha_e$ and $\beta_e$. I estimated these parameters jointly from all 21 conditions of Experiment~1 using Bayesian data analysis \cite[BDA; see, e.g.,][]{Kruschke2015}. To construct the dataset, I treated the ratings by each participant as a probability distribution from which I sampled 10 utterances. I used highly uninformative
+Given all the assumptions outlined above, the model has  $18$ parameters in total: A cost parameter $\gamma$, a rationality parameter $\lambda$, a noise strength parameter $\delta$, a constant corresponding to other utterances $O$, and for each utterance, Beta distribution parameters $\alpha_e$ and $\beta_e$. I estimated these parameters jointly from all 21 conditions of Experiment~1 using Bayesian data analysis \parencite[BDA; see, e.g.,][]{Kruschke2015}. To construct the dataset, I treated the ratings by each participant as a probability distribution from which I sampled 10 utterances. I used highly uninformative
 uniform priors over the interval $[0,15]$ for the Beta distribution and cost parameters, uniform priors over the interval $[0,7]$ for the rationality parameter, and uniform priors over the interval $[0,0.5]$ for $O$ and the noise strength parameter. I estimated the vector of parameters $\Theta$ using MCMC with a Metropolis Hastings sampler. To decrease autocorrelation of the chain, I collected a sample only at every 10th iteration (i.e., I use thinning of 10). I discarded the first 10,000 burn-in samples and then collected 50,000 samples.  I ran four MCMC chains and confirmed convergence by computing the $\hat{R}$-statistic \cite{Gelman2003}. More details on the implementation of the model can be found in Appendix C.
 
 \subsection{Model evaluation}
@@ -405,8 +405,8 @@ uniform priors over the interval $[0,15]$ for the Beta distribution and cost par
 
 
 The result of the parameter estimation procedure is a posterior distribution over parameters given the observed data $P(\Theta \mid D_{obs})$. I evaluated
- model fit by performing a posterior predictive check \cite[PPC;][]{Kruschke2015}. To this end, I took 10,000 samples of parameters $\Theta$ from the posterior distribution. For each sample, I computed the model predictions $ES_1^{(\mathscr{C})'}(u \mid \phi)$ parameterized by $\Theta$. I then compared the average model predictions to the
-mean ratings that participants had provided in the pre-exposure experiments. I further computed the 95\% high density interval  \cite[HDI;][]{Kruschke2015} which reflects the certainty of the model
+ model fit by performing a posterior predictive check \parencite[PPC;][]{Kruschke2015}. To this end, I took 10,000 samples of parameters $\Theta$ from the posterior distribution. For each sample, I computed the model predictions $ES_1^{(\mathscr{C})'}(u \mid \phi)$ parameterized by $\Theta$. I then compared the average model predictions to the
+mean ratings that participants had provided in the pre-exposure experiments. I further computed the 95\% high density interval  \parencite[HDI;][]{Kruschke2015} which reflects the certainty of the model
 about its predictions.
 
 Figure~\ref{fig:norming-results-model-main} shows the model predictions and the experimental data for three conditions 
@@ -502,7 +502,7 @@ The probability mass of the threshold distribution for \textit{might} is  concen
 is--to a large extent-- in line with non-probabilistic accounts of the interpretation of epistemic modals, such as the account
 by \cite{Kratzer2012} that I discussed in Chapter~2. As discussed in the previous chapter, these accounts generally assume that \textit{might} $p$ is true 
 if there exists a world $w$ in a set of (contextually restricted) epistemically accessible worlds $W$ such that $p$ is true in $w$ 
-\cite[e.g.,][]{Kratzer1991,Swanson2008,Hacquard2011}. This logical condition can be translated into a probabilistic framework by assuming that 
+\parencite[e.g.,][]{Kratzer1991,Swanson2008,Hacquard2011}. This logical condition can be translated into a probabilistic framework by assuming that 
 in my gumball machine context, there exists an epistemically accessible world $w$ for each gumball $g$ and that in world $w$, one gets gumball $g$. 
 Under this assumption, \textit{``You might get a blue gumball''} is true if there exists an epistemically accessible world $w$  in which one gets a
 gumball $g$ that is blue. At the same time, if such a world exists, then $P(\mbox{blue gumball})$ is greater than 0, which approximately corresponds
@@ -510,7 +510,7 @@ to the threshold semantics with the inferred threshold distribution of the model
 but not identical, to the one of \textit{might}.
 
 The threshold distribution for \textit{probably} has most of its probability mass concentrated at thresholds above 0.5. This again largely reflects the predictions of 
-existing accounts that assume that \textit{probably} $p$ is true if $p$ is more likely than the negation of $p$ \cite[e.g.,][]{Kratzer2012}.
+existing accounts that assume that \textit{probably} $p$ is true if $p$ is more likely than the negation of $p$ \egcite{Kratzer2012}.
 
 The threshold distributions for the remaining expressions, \textit{looks like} and \textit{think} also match intuitions. The distribution for 
 \textit{looks like} has most of its probability mass near threshold values of 1 but is overall slightly weaker, i.e., assigns higher probabilities to lower thresholds,
@@ -564,8 +564,8 @@ when it was paired with the bare form than when it was paired with
 
 
  To what extent are these observations compatible with the two most prominent accounts of epistemic modals -- Kratzer's \cite{Kratzer2012}
-account and a threshold semantics account \cite{Lassiter2017,Swanson2006,Yalcin2010} -- and to what extent are these findings 
-compatible with the proposal to use membership functions to predict the use of uncertainty expressions \cite{Wallssten}?
+account and a threshold semantics account \cite{Lassiter2016,Swanson2006,Yalcin2010} -- and to what extent are these findings 
+compatible with the proposal to use membership functions to predict the use of uncertainty expressions \cite{Wallsten1986}?
 
 \paragraph{Kratzer's account.} Kratzer's account makes several assumptions and predictions that are challenged by these findings. Recall that she assumes that epistemic \textit{could} and
 \textit{might} are semantically equivalent and that utterances with these modals are true if there is a contextually restricted epistemically accessible
@@ -609,7 +609,7 @@ Kratzer's account that \textit{probably} $\phi$ means that $\phi$ is a better po
 
 Without additional stipulations, Kratzer's account also does not explain the graded production expectations. However, this issue could be salvaged pretty easily
 by assuming that listeners are uncertain and have probabilistic beliefs about the relevant conversational background of the speaker. Kratzer herself argues for the possibility
-of listeners considering multiple conversational backgrounds (``More often than not, conversational backgrounds for modals remain genuinely underdetermined and what speakers intend to convey is compatible with several choices of conversational backgrounds.'' \cite{Kratzer2012,Ch2,p32}) and analogous to the beliefs about thresholds in the model above, one could also imagine that listeners have
+of listeners considering multiple conversational backgrounds (``More often than not, conversational backgrounds for modals remain genuinely underdetermined and what speakers intend to convey is compatible with several choices of conversational backgrounds.'' Kratzer \citeyear[][Ch. 2, p. 32]{Kratzer2012}) and analogous to the beliefs about thresholds in the model above, one could also imagine that listeners have
 beliefs about relevant conversational backgrounds.
 
 Finally, if combined with a model of pragmatic reasoning such as RSA, this theory is compatible with the varying ratings across alternatives. One could defined
@@ -620,20 +620,20 @@ predict the dependence on salient alternatives.
 it is unsurprising that a threshold account is considerably more compatible with the empirical findings. It is out of the box compatible
 with different and non-zero thresholds for \textit{might} and \textit{could} and it is compatible with a threshold below .5 for \textit{probably}.
 
-As I mentioned in Chapter 2, there has been disagreement about the thresholds for \textit{might} with \cite{Yalcin2010} arguing in accordance with
-\cite{Kratzer1991} that \textit{might} should have a threshold of 0. My findings here, however, provide additional evidence for \cite{Lassiter2017}'s
+As I mentioned in Chapter 2, there has been disagreement about the thresholds for \textit{might} with \textcite{Yalcin2010} arguing in accordance with
+\textcite{Kratzer1991} that \textit{might} should have a threshold of 0. My findings here, however, provide additional evidence for \citeauthor{Lassiter2016}'s
 claim that \textit{might}'s threshold is greater than 0 and context-dependent.
 
 The experimental and modeling results also corroborate the theoretical arguments that \textit{probably} can have a threshold lower than .5. Surprisingly,
-I found this in a setting in which there are only two possible outcomes unlike the Eurovision Song Contest scenario and lottery scenarios discussed by \cite{Lassiter2017, Yacin2010, Teigen1988},
+I found this in a setting in which there are only two possible outcomes unlike the Eurovision Song Contest scenario and lottery scenarios discussed by \textcite{Lassiter2016}, \textcite{Yalcin2010}, and \textcite{Teigen1988},
 suggesting that multiple outcomes are not necessary for the threshold being lower than .5.
 
 Further, concerning the graded ratings, I had to make the additional stipulation that listeners have probabilistic beliefs about a speaker's thresholds. 
 This further challenges \cite{Yalcin2010}'s assumption of a fixed threshold for \textit{might} but it is compatible with the assumption of context-dependent
-thresholds that \cite{Lassiter2017} argues for. While he did not spell out a complete pragmatic model of epistemic modals, he does argue that the computation 
-of thresholds could be akin to the RSA-based model of graded adjectives by \cite{LassiterGoodman} which also assumes that there are probabilistic beliefs about
-threshold distributions.\footnote{I am deviating from the \cite{LassiterGoodman2015} model, though, by assuming that each uncertainty expression  as an 
-associated non-flat threshold distribution whereas \cite{LassiterGoodman2015} assume that the threshold distribution is inferred through joint reasoning about the informativity of the utterance and the prior beliefs about the relevant scale.}
+thresholds that \textcite{Lassiter2016} argues for. While he did not spell out a complete pragmatic model of epistemic modals, he does argue that the computation 
+of thresholds could be akin to the RSA-based model of graded adjectives by \textcite{Lassiter2017b} which also assumes that there are probabilistic beliefs about
+threshold distributions.\footnote{I am deviating from the \textcite{Lassiter2017b} model, though, by assuming that each uncertainty expression  as an 
+associated non-flat threshold distribution whereas \textcite{Lassiter2017b} assume that the threshold distribution is inferred through joint reasoning about the informativity of the utterance and the prior beliefs about the relevant scale.}
 
 Finally, as shown in the experimental results above, this account readily predicts the dependence of the ratings on the available alternatives.
 
@@ -665,7 +665,7 @@ between uncertainty expressions and event probabilities, a threshold account com
 \subsection{Variability and the ``illusion of communication''} 
 
 The results from Experiment~1 also challenge the idea of the ``illusion of communication'' \cite{Budescu2009} in the use of uncertainty expressions
-to communicate event probabilities. \cite{AmerHackenbrackNelson1994, BrunTeigen1988, TeigenBrun1999} all argued that listeners are oblivious 
+to communicate event probabilities. \textcite{Amer1994}, \textcite{Brun1988}, and \textcite{Teigen1999} all argued that listeners are oblivious 
 to the variability of use and are therefore not even considering the possibility that a speaker's use of uncertainty expressions could be different from their own.
 However, in my experiments, I found that participants exhibited uncertainty and that they considered a lot uncertainty expressions to be possibly used
 for a large range of event probabilities, suggesting that participants are aware that an unknown generic speaker could use uncertainty expressions
