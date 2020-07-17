@@ -147,7 +147,7 @@ that beliefs about preferences and beliefs about the lexicon can interact in com
 The production expectation model in \sectionref{sec:model-baseline} provides me with the opportunity to formally evaluate these three hypotheses.
 Through a series of simulations of the adaptation process, we can compare models in which different types of parameters are
  updated during adaptation. Following work in modeling adaptation in other linguistic domains \egcite{Kleinschmidt2012,Kleinschmidt2015,Qing2014,Hawkins2017,Roettger2019}, 
-I also assume that in interaction, listeners form beliefs about a set of speaker-specific parameters $\Theta_S$.\footnote{Since the manipulation in my experiments was between subjects, my results do not provide direct evidence that listeners are indeed adapting to speakers (as compared, for example, to the general experimental situation). For now, I assume that listeners are adapting to specific speakers and I return to this issue in the general discussion and Chapter~5.
+I also assume that in interaction, listeners form beliefs about a set of speaker-specific parameters $\Theta_S$.\footnote{Since the manipulation in my experiments was between subjects, my results do not provide direct evidence that listeners are indeed adapting to speakers (as compared, for example, to the general experimental situation). For now, I assume that listeners adapt to specific speakers and I return to this issue in the general discussion and Chapter~5.
 
 Further, the speaker-specific parameters might be correlated and  listeners might form beliefs about bundles of correlated parameters instead of forming beliefs about individual parameters. For simplicity, I assume here that individual parameters are independent but it would be interesting to investigate whether, for example, listeners who expect a speaker to use lower thresholds for \textit{probably} also expect the same speaker to have lower thresholds for \textit{might} (see also Section~\ref{subsec:adaptation-model-evaluation}).}
 Following previous adaptation models, I also assume that the formation of these beliefs is an instance of Bayesian belief updating:
@@ -467,7 +467,7 @@ The main deviation between the model predictions and the experimental data lies 
 % Section 7
 \section{General Discussion}
 
-While adaptation in language is a widely attested phenomenon, the nature of the representations that are updated during semantic/pragmatic adaptation has largely remained a mystery. In this paper, my contributions have been three-fold: 
+While adaptation in language is a widely attested phenomenon, the nature of the representations that are updated during semantic/pragmatic adaptation has largely remained a mystery. In this chapter, my contributions have been three-fold: 
 
 First, in a production expectation experiment (Experiment~2), I showed that listeners adapt to speakers who vary in their use of uncertainty expressions, demonstrating that that 
 the findings from \parencite{Yildirim2016} extend to the class of uncertainty expressions. Second, I showed that updated \emph{production} expectations also affect subsequent utterance \emph{interpretation}  (Experiment~3).  Finally, in a series of model comparisons, I found strong evidence for listeners updating their beliefs about both the speaker's lexicon as well as the speaker's preferences, which suggests
@@ -495,136 +495,131 @@ I next discuss the implications of this work for other accounts of adaptation an
 
 %--> perhaps less of an issue in everyday interactions \cite{collinshahn2018}
 
-
-
-
-The model in this paper is formulated at the computational level \cite{Marr1982,Anderson1990} 
-and is therefore directly only comparable to other computational models. However, we can still assess 
-the compatibility of our findings with mechanistic accounts. We first discuss the relation to existing computational 
-models of adaptation and then discuss what the results tell us about existing mechanistic accounts of
- adaptation.
-
+Like other models based on Bayesian belief updating, the model that I used for my simulations
+is formulated at the computational level \cite{Marr1982,Anderson1990} 
+and is therefore directly only comparable to other computational models. However, I can still assess 
+the compatibility of my findings with other partner-specific accounts that I discussed in Chapter~2, namely
+episodic memory accounts, alignment accounts, and connectionist models. I first discuss the relation to existing Bayesian
+ models of adaptation and then discuss what the results tell us about other previously proposed accounts. 
+ 
 The model presented above follows several other computational models of linguistic adaptation that are based 
 on Bayesian belief updating, including models of phonetic adaptation \cite{Kleinschmidt2015}, syntactic 
 adaptation \cite{Kleinschmidt2012}, adaptation in the interpretation of prosodic cues \cite{Roettger2019},
 and adaptation to variable use of the quantifiers \textit{some} and \textit{many} \cite{Qing2014}. 
 All of these models are based on the same Bayesian belief updating procedure according to which listeners integrate
 their prior linguistic expectations and observed linguistic behavior to form updated expectations that facilitate comprehension.
-This updating procedure is in line with recent proposals of a ``Bayesian brain'' \parencite[e.g.,][]{Clark2013,Friston2010} which argue that
-many cognitive and perceptual processes can be seen as an instance of integrating prior beliefs with observed signals from the environment.
+As I mentioned earlier, these accounts are in line with recent proposals of a ``Bayesian brain'' \parencite[e.g.,][]{Clark2013,Friston2010} which argue that
+many cognitive and perceptual processes can be seen as an instance of integrating prior beliefs with observed signals from the environment. The 
+the fact that the model presented above is able to closely predict post-adaptation behavior at the semantic level provides further evidence 
+that Bayesian inference is a suitable model of many cognitive processes.
 
-Similarly, the formation of conceptual pacts \cite{Clark1986} --  alignment in the formation of referring expressions -- has been explained using a model  similar to the one we have proposed here \cite{Hawkins2017}. Hawkins et al.'s model is based on the assumption that speakers and listeners have uncertainty about the lexicon \parencite[see also][]{Bergen2016} and that in interaction, speakers 
-and listeners update their beliefs about the shared lexicon, akin to the updating of threshold distributions 
-in our model. This further suggests that belief updating plays an important role in partner-specific language processing.
+Episodic memory accounts \egcite{Horton2005,Horton2016} argue that individual linguistic 
+events are encoded together with speaker information and the world state in memory, 
+which results in speaker-specific linguistic representations. This account is compatible with my findings, if one assumes
+that individual utterance-world state pairs are stored in memory together with the speaker's 
+identity, and that some additional inference mechanism gives rise to the scalar inference
+ behavior that I observed in my experiments.
 
-In the space of mechanistic accounts, \cite{Pickering2004} argued that a lot of partner-specific linguistic behavior
- can be explained as the result of priming, i.e., the automatic activation of linguistic representations when 
-a speaker produces an utterance or a listener hears an utterance. Their account has the appeal
-of explaining why partner-specific language use often appears to happen automatically and effortlessly. 
-With the additional stipulation that the activated representations include information about both language
+The alignment account  \cite{Pickering2004} is based on the assumption that a lot of partner-specific linguistic behavior
+ can be explained as the result of automatic activation of linguistic representations when 
+a speaker produces an utterance or a listener hears an utterance. Without additional stipulations,
+their account does not predict the behavior I observed in Exps.~2 and 3. In both experiments.
+listeners were exposed to equal number of utterances with \textit{might} and \textit{probably}
+Therefore, according to the alignment account, the representations of both of these uncertainty expressions
+should have received the same amount of activation and it is unclear why participants should
+exhibit different behavior in the two conditions. With the additional stipulation that the activated representations 
+include information about both linguistic information 
 and the situational context and thus are able to represent variable semantics of uncertainty expressions,
-their account appears to be compatible with our results. However, considering that \cite{Yildirim2016} and 
-\cite{Schuster2019} found that listeners form speaker-specific expectations rather than expecting speakers
-to behave like the most recent speaker they encountered, adaptation seems to be a more complex process than predicted by a
-priming account.
+their account appears to be compatible with my results.
 
 In a more recent proposal, \textcite{Pickering2013} agued that
 at least sometimes listeners perform \textit{prediction-by-association} when processing
 an utterance, that is, listeners make predictions about what the speaker would say based on
 the context and their experience with the speaker.  This appears to
-be compatible with our computational adaptation model but more details need to be
-worked out about how such predictions operate at the implementational level \cite{Marr1982}.
+be compatible with our computational adaptation model but \citeauthor{Pickering2013} omit a discussion
+about how listeners learn to make predictions and which factors shape predictions,
+so it remains unclear whether their proposal is fully compatible with my empirical results.
 
-In a second line of work, \textcite{Horton2005,Horton2016} argued that partner-specific
-language use can be explained by an episodic memory account \cite{Goldinger1998,Johnson1997,Pierrehumbert2001}.
-According to this account, individual linguistic events are encoded together with
-speaker information and the world state in memory, which results in speaker-specific
-linguistic representations. This account is compatible with our findings, if we assume
-that individual utterance-world state pairs are stored in memory together with the speaker's 
-identity, and that some additional inference mechanism gives rise to the more complex
-pragmatic behavior that we observed in our experiments.
+Lastly, connectionist models such as the model by \textcite{Chang2006} could likely 
+be extended to predict speaker-specific interpretations but since these accounts have primarily
+focused on syntactic phenomena and have not been trained to predict the interpretation
+of context-sensitive utterances such as the ones in my experiments.
 
 \subsection{Implications for the semantics of uncertainty expressions}
 
-Our results also have implications for semantic theories of uncertainty expressions.
+The results in this chapter also have implications for semantic theories of uncertainty expressions.
 The finding that listeners rapidly update their beliefs about semantic thresholds of uncertainty expressions
-suggests that the semantics of these expressions is highly dynamic and context-sensitive. This is broadly compatible with 
-theoretical accounts of probability operators \parencite[a subset of uncertainty expressions; e.g.,][]{Yalcin2010} which 
-state that the meanings of probability operators are highly dynamic and largely determined by the context. Our results
-suggest that the meaning of uncertainty expressions is even more dynamic than predicted by these accounts. First, we show that this dynamicity 
-extends to a broader set of uncertainty expressions than is typically considered (e.g., \textit{might}), as has been recently also argued by \cite{Lassiter2016}. 
-Second, while these accounts generally assume 
-that the main source of variability in interpretation is the probability of the event
-embedded under the uncertainty expressions, we find that knowledge of speaker identity also  importantly contributes variability.
+suggests that the semantics of these expressions is highly dynamic and context-sensitive, and that fixed thresholds
+such as a threshold of 0 for \textit{might} do not accurately capture linguistic behavior.
 
 Dynamic and context-sensitive semantics have also been proposed for many other types of expressions.
 For example, \cite{Clark1983} argued that speakers and listeners
 are able to compute novel senses of nouns and verbs on the fly. Similarly, in the domain of gradable adjectives such as \textit{tall},
 \cite{Kennedy2007} and many others have argued that the interpretation of these adjectives crucially depends on contextual
 parameters. Considering the prevalence of dynamic meanings for so many other types of expression, it is therefore not 
-surprising that the interpretation of uncertainty expressions also appears to be highly context-sensitive.
+surprising that the interpretation of uncertainty expressions also appears to be highly context-sensitive, and that
+experience with a speaker is a contextual factor.
  
-\subsection{Methodological implications}
+%\subsection{Methodological implications}
 
-Our results also have implications for conducting psycholinguistic experiments. First,
-the finding that listeners adapt to the statistics of their environment within a short experiment
-suggests that experimenters should be cognizant of potential adaptation effects when probing
-production expectations or interpretations of uncertainty expressions \parencite[see also][]{Jaeger2010}. 
+%My results also have implications for conducting psycholinguistic experiments. First,
+%the finding that listeners adapt to the statistics of their environment within a short experiment
+%suggests that experimenters should be cognizant of potential adaptation effects when probing
+%production expectations or interpretations of uncertainty expressions \parencite[see also][]{Jaeger2010}. 
 
-Further, the results of Experiment~1, and in particular, the finding
-that participants' expectations about the use of utterances in the experiment strongly depended on
-the alternative utterances that we provided, highlights the need to be cautious about drawing general conclusions about expectations of use from single experiments. For example,
-had we only considered the results from the \textit{bare-might} condition (see \figref{fig:norming-results-main}),
-we might have concluded that ``might'' is an expected expression to communicate an event probability of 75\%,
-whereas if we had only considered the results from the \textit{might-probably} condition we might have instead concluded that it is \emph{not} an expected expression to communicate an event probability of 75\%.
-This is where explicit modeling of the sort we have engaged in here is hugely helpful: formulating a concrete linking function which models the effects of 
-alternatives allows for inferring the latent meanings of utterances by combining data from different experiments \parencite[see also][for similar approaches]{Franke2014,Peloquin2016}.
+%Further, the results of Experiment~1, and in particular, the finding
+%that participants' expectations about the use of utterances in the experiment strongly depended on
+%the alternative utterances that we provided, highlights the need to be cautious about drawing general conclusions about expectations of use from single experiments. For example,
+%had we only considered the results from the \textit{bare-might} condition (see \figref{fig:norming-results-main}),
+%we might have concluded that ``might'' is an expected expression to communicate an event probability of 75\%,
+%whereas if we had only considered the results from the \textit{might-probably} condition we might have instead concluded that it is \emph{not} an expected expression to communicate an event probability of 75\%.
+%This is where explicit modeling of the sort we have engaged in here is hugely helpful: formulating a concrete linking function which models the effects of 
+%alternatives allows for inferring the latent meanings of utterances by combining data from different experiments \parencite[see also][for similar approaches]{Franke2014,Peloquin2016}.
 
-\subsection{Limitations and future directions}
+\subsection{Looking ahead}
 
-One limitation of the present research is that the experimental paradigm is not interactive and that participants likely engaged in meta-linguistic reasoning in providing production expectation and interpretation ratings. While we tried to make the communicative situation depicted in the experiments natural,
-the paradigm is clearly different from everyday dialog. This limitation was necessary for the tight coupling between the experimental work
-and the model simulations that allowed us to investigate what kind of representations listeners update during adaption; in a more
-naturalistic and unconstrained setting, we would not have been able to obtain information about listener's production expectations and about their
-uncertainty in both production expectations and interpretations. However, considering that our task was different from everyday interactions, investigating
-to what extent the results in the present research translate to less scripted and more interactive settings is an important area for future research. Employing measures like eye movements or mouse-tracking could provide insight into whether participants' updated beliefs affect online language processing, i.e.~where meta-linguistic reasoning is unlikely to occur. In this vein, mouse-tracking has recently been
-employed  to investigate the incremental nature of adaptation in the domain of  prosodic cues \cite{Roettger2019}. Both eye-tracking and mouse-tracking experiments 
-allow for implementing more natural interpretation tasks while still providing information about participants' uncertain beliefs via fixation patterns or cursor trajectories.
+%One limitation of the present research is that the experimental paradigm is not interactive and that participants likely 
+%engaged in meta-linguistic reasoning in providing production expectation and interpretation ratings. 
+%While we tried to make the communicative situation depicted in the experiments natural,
+%the paradigm is clearly different from everyday dialog. This limitation was necessary for the tight coupling between the experimental work
+%and the model simulations that allowed us to investigate what kind of representations listeners update during adaption; in a more
+%naturalistic and unconstrained setting, we would not have been able to obtain information about listener's production expectations and about their
+%uncertainty in both production expectations and interpretations. However, considering that our task was different from everyday interactions, investigating
+%to what extent the results in the present research translate to less scripted and more interactive settings is an important area for future research. Employing measures like eye movements or mouse-tracking could provide insight into whether participants' updated beliefs affect online language processing, i.e.~where meta-linguistic reasoning is unlikely to occur. In this vein, mouse-tracking has recently been
+%employed  to investigate the incremental nature of adaptation in the domain of  prosodic cues \cite{Roettger2019}. Both eye-tracking and mouse-tracking experiments 
+%allow for implementing more natural interpretation tasks while still providing information about participants' uncertain beliefs via fixation patterns or cursor trajectories.
 
 
-Throughout this paper, we made the assumption that listeners  form \textit{speaker-specific} production expectations. However,
-since all our experiments had a between-subjects design, it could be that participants were only adapting to the experimental
+Throughout this chapter, i made the assumption that listeners  form \textit{speaker-specific} production expectations. However,
+since all my experiments had a between-subjects design, it could be that participants were only adapting to the experimental
 situation, independent of the speaker. This seems unlikely given the results reported by \textcite{Yildirim2016}, who found that
 participants formed speaker-specific production expectations after being exposed to multiple speakers whose use of
-quantifiers differed. Moreover,  \textcite{Schuster2019} have provided evidence of speaker-specific adaptation to 
-uncertainty expressions. However, exactly which aspects of a situation (e.g., the speaker, the topic of conversation, the visual context, etc.)
-listeners adapt to is an issue that merits further investigation.
+quantifiers differed, but given the findings from phonetic adaptation that listeners only form speaker-specific expectations
+for some but not all phonemes \cite{Kraljic2006}, it could be that listeners adapt to other aspects of the situation (e.g., the topic of conversation, the visual context, etc.).
+I will discuss which aspects of the context listeners adapt to in the next chapter.
 
 One advantage of formalizing a theory as a computational model is that the model 
 makes concrete predictions to test in future experiments. For example, the proposed
 model is able to make quantitative predictions about the relation between the number of exposure
-trials and the size of the adaptation effect. Qualitatively, the model predicts that more exposure
-should lead to more adaptation, for which some evidence is reported by \textcite{Schuster2019}.
-However,  a systematic investigation of whether the model makes the correct quantitative predictions remains to be conducted. 
+trials and the size of the adaptation effect. I will also return to this question in the the discussion of the next chapter.
 
 Further, the presented adaptation model is built around the assumption that the utility of an utterance is exclusively determined
 by the informativeness and the cost of the utterance. However, it has been observed that other speaker goals such as being polite or
 convincing could also factor into the interpretation of uncertainty expressions \parencite[see e.g,][]{Pighin2011,Juanchich2013,Holtgraves2016}.
 It could therefore be that, for example, listeners explain away the behavior of a ``confident'' speaker if the context suggests that the speaker
-has an incentive to be encouraging or has additional goals besides being informative \parencite[see also][]{Yoon2016,Yoon2017}. Investigating whether listeners draw such complex inferences
-could provide  insight about which kind of potential speaker goals enter into listeners' pragmatic reasoning process.
+has an incentive to be encouraging or has additional goals besides being informative \parencite[see also][]{Yoon2016,Yoon2017}. I will return to this question in Chapter~6.
 
 
-\subsection{Conclusion}
+\subsection{Chapter summary}
 
-We began with the puzzle of how to reconcile the assumption of stable utterance alternatives required for pragmatic reasoning with variability in speakers'  language use. The work reported here, building on much previous work on adaptation, suggests that this apparent tension is easily resolved if listeners form speaker-specific utterance expectations that they can recruit when interpreting utterances produced by that speaker.
+In this chapter, building on much previous work on adaptation, I provided evidence that listeners form speaker-specific utterance expectations that they can recruit when interpreting utterances produced by that speaker.
 
-In a series of web-based experiments, we found that after exposure to a specific speaker, listeners rapidly update 
+In a series of web-based experiments, I found that after exposure to a specific speaker, listeners rapidly update 
 their expectations about which uncertainty expressions that speaker is likely to produce
 to describe varying event probabilities. Moreover, these updated expectations also enter into subsequent utterance interpretation.
-We provided a formal account of semantic/pragmatic adaptation and modeled this behavior using a Bayesian cognitive model 
+I provided a formal account of semantic/pragmatic adaptation and modeled this behavior using a Bayesian cognitive model 
 which assumes that (listeners reason about) speakers (who) efficiently trade off utterance informativeness and cost.
-Through a series of simulations we found strong evidence that semantic/pragmatic adaptation is the result of
+Through a series of simulations I found strong evidence that semantic/pragmatic adaptation is the result of
 updating beliefs about both a specific speaker's underlying lexicon as well as the speaker's utterance
 preferences. These results both provide new insights into the cognitive processes involved in semantic/pragmatic adaptation
 and demonstrate that tight coupling of quantitative computational models and experimental results can shed light on
