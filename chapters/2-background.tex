@@ -732,8 +732,8 @@ The semantics of sentences with necessity modals such as \textit{must} and possi
 can then be expressed in terms of $f$-necessity and -possibility:
 
 \begin{exe}
-\ex $\sem{\mbox{must }\phi}^{w,f} = 1 \mbox{ iff $\phi$ is an $f$-necessity in $w$} $
-\ex $\sem{\mbox{might } \phi}^{w,f} = 1 \mbox{ iff $\phi$ is an $f$-possibility in $w$} $
+\ex $\sem{\mbox{must }\phi}^{w,f} = \top \mbox{ iff $\phi$ is an $f$-necessity in $w$} $
+\ex $\sem{\mbox{might } \phi}^{w,f} = \top \mbox{ iff $\phi$ is an $f$-possibility in $w$} $
 \end{exe}
 
 The semantics of these expressions is equivalent to the classical modal logic semantics presented in (\ref{ex:modall-must})  and (\ref{ex:modall-might}), 
@@ -790,11 +790,11 @@ $$\lnot \exists u ( u \in \cap f(w) \land u \in \phi-\psi \land \forall v (( v \
 \noindent	Further, $\phi$ is a better possibility than $\psi$ iff $\phi$ is at least as good a  possibility as $\psi$ and $\psi$ is 
 not at least as good as possibility as $\phi$. Using this definition, \textcite{Kratzer1991} defines the semantics of \textit{probably} as
 \begin{exe}
-\ex $\sem{\mbox{probably } \phi}^{w,f,g}  = 1 \mbox{ iff $\phi$ is a better possibility than $\lnot \phi$}.$ 
+\ex $\sem{\mbox{probably } \phi}^{w,f,g}  = \top \mbox{ iff $\phi$ is a better possibility than $\lnot \phi$}.$ 
 \end{exe}
 \noindent Similarly, the semantics of \textit{$\phi$ is more likely than $\psi$} can be defined as 
 \begin{exe}
-\ex $\sem{\phi \mbox{ is more likely than } \psi}^{w,f,g}  = 1 \mbox{ iff $\phi$ is a better possibility than $\psi$}.$ 
+\ex $\sem{\phi \mbox{ is more likely than } \psi}^{w,f,g}  = \top \mbox{ iff $\phi$ is a better possibility than $\psi$}.$ 
 \end{exe}	
 
 As compared to classical modal logic, this proposal has the advantage of providing a semantics for comparative constructions and
@@ -918,7 +918,7 @@ uncertainty expressions can be used.
 \section{Verbal probability expressions}
 
 In a line of work that has largely operated in parallel to modality research, there has also been considerable research 
-into how uncertainty expressions or -- as they are referred to in this literature -- verbal probability expressions are used
+into how uncertainty expressions or -- as they are referred to in this literature -- \textit{verbal probability expressions} are used
 to communicate probabilities of future events. The overarching goals of this line of work have been to determine how
 language users map uncertainty expressions to probabilities and how probabilities communicated through uncertainty expressions
 shape decision behavior \cite{Budescu1995}. 
@@ -934,17 +934,17 @@ probability is communicated by a given uncertainty expression.
 
 While \textcite{Wallsten1986} successfully managed to infer membership functions of uncertainty expressions
 that largely remained constant for individual participants across multiple experimental sessions, they also found that there is considerable
-inter-subject variability, suggesting that the mapping varies considerably across individual language users and challenging
+inter-subject variability, suggesting that the mapping varies considerably across individual language users, thus challenging
 the assumption of a conventional mapping. \textcite{Wallsten1986} only speculated about the reasons 
-for this variability but they assumed that this variability was caused by individual differences such as different educational backgrounds
+for this variability but they assumed that it was caused by individual differences such as different educational backgrounds
 or different experience levels with uncertainty expressions.
 
 The finding that there exists considerable variability inspired a lot of follow-up work to identify contextual factors
 affecting interpretations and productions of uncertainty expressions. These factors include base probability events (e.g.,
 \textit{probable} describing the likelihood of snow in the North Carolina mountains in December is interpreted to describe
-higher event probabilities than when describing the probability of snow in October \citeauthor{Wallsten1986b}, \citeyear{Wallsten1986b}); 
-outcome severity (more severe consequences lead to inferring higher probabilities \citeauthor{Weber1990}, \citeyear{Weber1990}); outcome valence
-(positive events lead to higher inferred probabilities \citeauthor{Mullet1991}, \citeyear{Mullet1991}); and the alternatives presented in the experiment 
+higher event probabilities than when describing the probability of snow in October, \citeauthor{Wallsten1986b}, \citeyear{Wallsten1986b}); 
+outcome severity (more severe consequences lead to inferring higher probabilities, \citeauthor{Weber1990}, \citeyear{Weber1990}); outcome valence
+(positive events lead to higher inferred probabilities, \citeauthor{Mullet1991}, \citeyear{Mullet1991}); and the alternatives presented in the experiment 
 \cite{Fillenbaum1991}.
 
 Despite this progress in identifying contextual factors, there has not been progress in modeling how contextual factors
@@ -991,11 +991,11 @@ theory of how speakers choose utterances from a set of alternative utterances an
 a game-theoretic probabilistic formalization of Gricean \cite{Grice1975} pragmatic reasoning and casts interpretation of utterances as probabilistic Bayesian
 inference, following recent successes in Bayesian modeling of many cognitive processes \egcite{Tenenbaum2011}. 
 
-According to an RSA model, two types of agents engage in a communicate game: speaker agents $S$ and listener agents $L$. The goal of a speaker agent is to communicate
+According to an RSA model, two types of agents engage in a communicative game: speaker agents $S$ and listener agents $L$. The goal of a speaker agent is to communicate
 a world state $w$ from a set of possible worlds $W$ to a listener by choosing an utterance $u$ from a set of alternative utterances $U$; the goal of the listener agent is to infer the world 
 state $w$ after hearing the utterance $u$. Speaker agents and listener agents reason about each other when choosing and interpreting utterances, leading to a
 recursive probabilistic reasoning process. Generally, as a base case of this recursive process, the lowest level is represented by a so-called literal listener $L_0$.\footnote{
-\todo{mention cases in which $S_0$ is the base case.}}
+For some phenomena, though, RSA models that start of with a literal speaker $S_0$ have been proposed \egcite{Qing2019}.}
 The literal listener interprets an utterance probabilistically according to a semantic interpretation function $\sem{\cdot}$ of the utterance, 
 resulting in a distribution over world states $w$ given an utterance $u$.\footnote{To keep the definitions compact, I omit the normalization terms from all definitions here. 
 Note, however, that all listener and speaker distributions are probability distributions and therefore always have to be normalized to sum to 1.}
@@ -1027,20 +1027,18 @@ of the speaker $S_1$ choosing the observed utterance to communicate $w$:
 $$L_1(w \mid u) \propto P(w) \times S_1(u \mid w)$$
 
 This recursive reasoning process can theoretically be continued ad infinitum by adding additional speaker and listener agents that 
-reason about their respective counterpart agents one level below $i-1$ the current level $i$:
+reason about their respective counterpart agents one level below $i-1$ the current level $i$ \cite{Franke2009}:
 $$U_i(w,u) = \log L_{i}(w \mid u) - c(u)$$
 $$S_i \propto \mbox{exp} \left( \lambda U_{i-1}(w,u) \right)$$
 $$ L_i(u \mid w) \propto P(w) \times S_i(u \mid w)$$
 
-\todo{mention IBR}
-
-In practice, however, this recursive process is usually capped at the $L_1$ and $L_2$ level (\todo{add reference. Franke and Degen?}) and the models
+In practice, however, this recursive process is usually capped at the $S_1$ and $L_1$ level (\citeauthor{Franke2016}, \citeyear{Franke2016}; but cf. \citeauthor{Lassiter2017b}, \citeyear{Lassiter2017b}; \citeauthor{Bergen2016}, \citeyear{Bergen2016}) and the models
 that I will consider in this dissertation are also all capped at the $L_1$ level.
 
 
 
 This recursive reasoning process implicitly models a Gricean counterfactual reasoning process in which listeners reason about alternative utterances
-that a speaker could have produced but didn't to interrpret To illustrate how this works, consider a simple reference game as shown in Figure~\ref{fig:faces-ad-hoc-imp}.\footnote{Example adapted from \textcite{Goodman2016}.} In this game,
+that a speaker could have produced but didn't. To illustrate how this works, consider a simple reference game as shown in Figure~\ref{fig:faces-ad-hoc-imp}.\footnote{Example adapted from \textcite{Goodman2016}.} In this game,
 there are three faces: one without any accessories (\textbf{n}), one with glasses (\textbf{g}), and one with glasses and a hat (\textbf{gh}). A speaker chooses one of the three faces
 and tries to communicate her choice to the listener through an utterance $u$. In this contrived example, let us assume that the only three possible utterances that the
 speaker can choose from are $U=\{\mbox{\textsc{face}: My friend has a face},\mbox{\textsc{glasses}: My friend has glasses},$ $\mbox{\textsc{hat}: My friend has a hat}\}$, 
