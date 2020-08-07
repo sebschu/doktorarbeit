@@ -1,18 +1,16 @@
 Speakers vary in their language use at all linguistic levels. This is most obvious at the phonetic level, since we constantly encounter speakers with different accents than our own and who consequently pronounce words differently from us. But this variation also exists at other levels. For example, at the level of syntax, different speakers show different preferences for syntactic alternations such as the frequency with which they use passive constructions \cite{Weiner1983}. Or at the word level, different speakers use words differently and--to take a stereotypical example--the comment \textit{``The movie was good.''} by an overly enthusiastic American person is generally intended to convey a worse opinion than the same utterance by a British person.
 
-This variability is at odds with the observation that successful communication is nevertheless possible most of the time. Unless a speaker has a very strong accent which a listener had not been previously exposed to, or a speaker uses many words in a very unexpected manner, listeners tend to be able to comprehend the utterances of our interlocutors. The ease of communication with interlocutors whose language use differs from their own suggests that listeners are equipped with a very dynamic comprehension system that can easily be adjusted to novel speakers, rather than processing utterances according to their own egocentric linguistic system.
 
-In theory there are multiple possibilities of how such a dynamic comprehension system could work. For example, it could be that listeners \textit{normalize} the linguistic input prior to interpreting utterances such that any variability is removed before interpretation \egcite{NewmanSawusch1996}. It could also be that listeners constantly \textit{fine-tune} their linguistic representations such that they match the representations of their interlocutors \egcite{Pickering2004}. However, an increasing body of research suggests that listeners \textit{adapt} to specific speakers and learn-speaker specific language models that enable comprehension of utterances by speakers who vary in their productions \cite{Norris2003,Kraljic2007,Bradlow2008, Kamide2012,Kleinschmidt2015,Fine2016,Roettger2019}. The learning is driven by the statiscal input -- by tracking speaker-speci?c statistics, listeners can estimate accurate generative models of a speaker, i.e., models predicting how a speaker would pronounce a word or what a speaker would say in different contexts, which in return can lead to more accurate comprehension processes.
+In theory there are multiple possibilities of how such a dynamic comprehension system could work. For example, it could be that listeners \textit{normalize} the linguistic input prior to interpreting utterances such that any variability is removed before interpretation \egcite{NewmanSawusch1996}. It could also be that listeners constantly \textit{fine-tune} their linguistic representations such that they match the representations of their interlocutors \egcite{Pickering2004}. However, an increasing body of research suggests that listeners \textit{adapt} to specific speakers and learn-speaker specific language models that enable comprehension of utterances by speakers who vary in their productions \cite{Norris2003,Kraljic2007,Bradlow2008, Kamide2012,Kleinschmidt2015,Fine2016,Roettger2019}. The learning is driven by the statiscal input -- by tracking speaker-specific statistics, listeners can estimate accurate generative models of a speaker, i.e., models predicting how a speaker would pronounce a word or what a speaker would say in different contexts, which in return can lead to more accurate comprehension processes.
 
-As I discuss in more detail in Chapter 2, there have been many experiments and considerable modeling work investigating the properties of adaptation processes in phonetics and syntax. At higher levels such as semantics and pragmatics, however, we still know a lot less about the extent to which listeners adapt or the associated cognitive processes. In this dissertation, I therefore investigate the extent of semantic-pragmatic adaptation through multiple experiments as well as the adaptation processes through computational modeling experiments. 
+As I discuss in detail in Chapter 2, there have been many experiments and considerable modeling work investigating the properties of adaptation processes in phonetics and syntax. At higher levels such as semantics and pragmatics, however, we still know much less about the extent to which listeners adapt or about the cognitive processes that support adaptation. The contribution of this dissertation is two-fold: I investigate the extent of semantic-pragmatic adaptation in the domain of uncertainty expressions such as \textit{might} or \textit{probably} through multiple experiments; and I elucidate the adaptation processes through computational modeling experiments. 
 
 \section{Why adapt?}
 \label{sec:why-adapt}
 
-Before, I turn to the specific research questions and experiments, let me explain why it is beneficial for listeners to adapt. We interact with many different speakers in our daily lives -- either truly interactively in conversation or more passively when watching TV, listening to audio or video recordings, or consuming other types of media. Thus, if as listeners, we constantly adapt to all the speakers we encounter and update speaker-specific expectations, we have to keep track of considerable amounts of information. This process clearly incurs some cost, which raises the question what the benefits of semantic-pragmatic adaptation are, and whether the benefits outweigh the cost. I will not be able to answer the latter question since I can neither quantify the 
-the cost associated with adaptation nor quantify the utility of adaptation. However, to answer the first question, there exist clear benefits of semantic and pragmatic adaptation, including the following.
+Before I turn to the specific research questions and experiments, it is useful to consider why it is beneficial for listeners to adapt. Listeners interact with many different speakers in their daily lives -- either truly interactively in conversation or more passively when watching TV, listening to audio or video recordings, or consuming other types of media. Thus, if listeners constantly adapt to all the speakers they encounter and update speaker-specific expectations, they have to keep track of considerable amounts of information. While this process of tracking statistics and updating expectations likely incurs some cost, there also exist clear benefits of semantic and pragmatic adaptation to communication, including the following.
 
-First, at the semantic level, listeners will be able to better infer the intended speaker meaning if they know the speaker's mapping between words and world states. For example, if I know that a speaker only uses \emph{some} to refer to quantities greater than 3, I will be better able to narrow down the state of the world after hearing \emph{``I ate some of the cookies''} than I would have been able to if I had assumed that the speaker uses \emph{some} exactly the same way as I do, which for the sake of the example, let's say is to refer to quantities greater than 0. Similarly, differences in speaker and listener meaning become even more striking if my meaning of \emph{some} is narrower than the speaker's \emph{some}: If a speaker uses \emph{some} to refer to a quantity of 4 but my meaning of \emph{some} is limited to quantities greater than 5, I will infer a state of the world that is incompatible with the actual world. \todo{make figure?}.
+First, at the semantic level, listeners are able to better infer the intended speaker meaning if they know the speaker's mapping between words and world states. For example, if a listener knows that a speaker only uses \emph{some} to refer to quantities greater than 3, the listener will be better able to narrow down the state of the world after hearing \emph{``I ate some of the cookies''} than they would have been able to if they had assumed that the speaker uses \emph{some} exactly the same way as they do, which may be different from the speaker's uses.
 
 At the pragmatic level, adaptation can further help listeners to infer the speaker's intended meaning. To see this, note that one of the key assumptions about pragmatic reasoning is that listeners reason about alternative utterances when interpreting a speaker's utterance \cite{Grice1975, Horn1984}. For example, consider the following sentence that gives rise to a scalar implicature.
 
@@ -27,7 +25,7 @@ Accounts of pragmatic reasoning share the implicit assumption that listeners hav
  about the speaker's language use -- specifically, which utterance alternatives were available to the 
  speaker that they didn't use -- in different situations. Listeners can only draw correct pragmatic 
  inferences if they know what a speaker would have said to communicate alternative world states. 
- In large parts these expectations are guided by the meaning of words. as I illustrated with the cookies example above. 
+ In large parts these expectations are guided by the meaning of words.
 However, speaker expectations also depend on other factors such as the speaker's preference for
  different lexical items or the set of alternative utterances from which they choose.
  
@@ -69,7 +67,7 @@ will draw on average more accurate inferences about the world than a listener wh
 for interpreting utterances.
 
 The third advantage of adaptation is related to online language processing. The last several decades
-in psycholinguistic research produced a lot of evidence that listeners constantly engage in the prediction of 
+in psycholinguistic research produced a lot of evidence that listeners constantly engage in prediction of 
 the upcoming input \egcite{Kuperberg2016}.\footnote{This is more generally true for many perceptual 
 processes including vision \parencite[see, e.g.,][]{Clark2013,Friston2010}.} 
 On the one hand, this form of predictive processing makes language comprehension more robust. If due to noise,
@@ -79,17 +77,18 @@ If listeners constantly predict the upcoming signal, the early stages of compreh
 reduce to comparing predictions about the upcoming linguistic input to the perceived input and, at these stages, 
 listeners only have to process this difference, i.e., the error signal. However, according to such an account,
 rapid and accurate processing is only possible if listeners are able to make reliable predictions about the upcoming
-input. Accurate predictions in a variable and constantly changing environment, in return, are only possible through
- adaptation which highlights another advantage of constant adaptation.
+input. Accurate predictions in a variable and constantly changing environment, in turn, are only possible through
+ adaptation, which highlights another advantage of constant adaptation.
 
 \section{Defining the scope}
 
-In this dissertation, I investigate the extent of semantic and pragmatic adaptation as well as
+In this dissertation, I investigate the extent of semantic and pragmatic adaptation and aim to uncover
 the associated cognitive processes. That is, to what extent do listeners learn speaker-specific
 meanings of words; to what extent do listeners learn speaker-specific expectations of words,
 and to what extent does this speaker-specific knowledge affect interpretations of utterances? 
-And what are the cognitive processes that lead to this behavior and what is the nature of the
-representations that are updated as a result of adaptation?
+The answers to these questions will raise additional issues: What are the cognitive processes 
+that lead to this behavior and what is the nature of the representations that are updated as a result of 
+adaptation?
 
 In this enterprise, I focus on uncertainty expressions
 such as \emph{might} and \emph{probably}. Thus, all findings will only directly apply to 
