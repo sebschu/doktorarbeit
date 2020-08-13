@@ -24,6 +24,7 @@
  \usepackage{colortbl}
 \usepackage{color}
 \definecolor{LightGray}{gray}{0.92}
+\usepackage{epigraph}
 %\usepackage[authoryear]{natbib}
 %\setcitestyle{authoryear}
 
@@ -46,7 +47,7 @@
 
 
 \definecolor{PinkyPurple}{RGB}{178,0,178}
-\newcommand{\todo}[1]{\textcolor{PinkyPurple}{\textbf{[TODO: #1]}}}
+%\newcommand{\todo}[1]{\textcolor{PinkyPurple}{\textbf{[TODO: #1]}}}
 
 \renewcommand{\cite}[1]{\parencite{#1}}
 \newcommand{\egcite}[1]{\parencite[e.g.,][]{#1}}
@@ -129,25 +130,25 @@
  
 %% Normally the \chapter and any text would be in a separate file and included.
     \chapter{Introduction}
-    \include{chapters/1-introduction}
+    \input{chapters/1-introduction}
 
     \chapter{Background}
-    \include{chapters/2-background}
+    \input{chapters/2-background}
 
     \chapter{Production expectations}
-    \include{chapters/3-expectations}
+    \input{chapters/3-expectations}
 
     \chapter{Adaptation}
-    \include{chapters/4-adaptation}
+    \input{chapters/4-adaptation}
 
     \chapter{Speaker-specific adaptation}
-    \include{chapters/5-speaker-specific}
+    \input{chapters/5-speaker-specific}
 
     \chapter{Explaining away}
-    \include{chapters/6-explaining-away}
+    \input{chapters/6-explaining-away}
     
-    \chapter{Conclusions}
-    \include{chapters/7-conclusions}
+    \chapter{Concluding remarks}
+    \input{chapters/7-conclusions}
 
     \printbibliography
 
