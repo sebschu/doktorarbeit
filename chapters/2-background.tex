@@ -62,7 +62,7 @@ The critical priming trials varied in terms of the syntactic structure that was 
  prepositional dative construction (e.g., \textit{``A rock star
 sold some cocaine to an undercover agent''})  or a double object construction (\textit{``A rock star sold an undercover agent some cocaine''}), and the other half could be
 described using an active sentence (e.g., \textit{``One of the fans punched the referee''}) or a passive construction (\textit{``The referee was punched by one of the fans''}).
-\cite{Bock1986} found that the syntactic structure descriptions that participants produced on the picture description trials were influenced by the syntactic structure of the description
+\textcite{Bock1986} found that the syntactic structure descriptions that participants produced on the picture description trials were influenced by the syntactic structure of the description
 of the priming trial; for example, when participants described an event after hearing a prepositional dative description on the preceding priming trial, they were more likely to also 
 use a prepositional dative description than when they were primed with a double object construction. These findings, usually referred to as syntactic priming, have been 
 replicated many times, including in interactive conversations between two participants \cite{Branigan2000} and in comprehension \egcite{Traxler2008}, 
@@ -97,8 +97,8 @@ This again provides evidence for listeners updating their expectations about syn
 and integrating these updated expectations in online sentence processing.
 
 While there have been several studies about cumulative syntactic adaptation similar to \textcite{Kamide2012} and \textcite{Fine2013}, it is also noteworthy
-that these effects appear to less reliable as compared to other partner-specific phenomena. \textcite{Liu2017} failed to replicate the experiment by \textcite{Kamide2012}, 
-\cite{HarringtonStack2018} failed to replicate one experiment by  \textcite{Fine2013}, and \textcite{Prasad2020} argued that one needs more than 1,200
+that these effects appear to be less reliable as compared to other partner-specific phenomena. \textcite{Liu2017} failed to replicate the experiment by \textcite{Kamide2012}, 
+\textcite{HarringtonStack2018} failed to replicate one experiment by  \textcite{Fine2013}, and \textcite{Prasad2020} argued that one needs more than 1,200
 participants to achieve sufficient power to detect syntactic adaptation effects in self-paced reading experiments.
 
 \paragraph{Semantics.} At the level of semantics, \textcite{Clark1986} demonstrated in an interactive conversation study that interlocutors 
@@ -130,14 +130,14 @@ In one experiment, they exposed participants either to a speaker who used contra
 uses of contrastive focus. On each trial, participants had to select an image that they thought the speaker was referring to. The images
 always included an object that the speaker mentioned (e.g., a zebra) and a competitor that was similar to the target image (e.g., an okapi,
 a zebra-like animal which only has strips on its legs). During the exposure phase, the speaker produced utterances of the form \textit{It looks like a zebra}, either
-with focus on \textit{looks} (verb-focus) or on the noun (noun focus) followed by a continuation that clearly described the target (affirmative continuation; e.g., \textit{... because it has black and white strips all over its body}),
+with focus on \textit{looks} (verb focus) or on the noun (noun focus) followed by a continuation that clearly described the target (affirmative continuation; e.g., \textit{... because it has black and white strips all over its body}),
 or a continuation that described the competitor (negative continuation; e.g., \textit{... but it's not; it has stripes only on its legs}). Depending on the condition, 
-the speaker used different focus patterns. In the reliable condition, the speaker always used noun-focus with affirmative continuations, and verb focus with
+the speaker used different focus patterns. In the reliable condition, the speaker always used noun focus with affirmative continuations, and verb focus with
 negative continuations; in the unreliable condition, the speaker used both focus patterns for both continuations equally often. \textcite{Kurumada2012} found
 that listeners adapted to the different uses and in a test phase without continuations, participants in the reliable speaker condition relied on prosodic cues more
 often than in the unreliable condition. This effect has also been replicated in German by \textcite{Roettger2019}, and they have shown that prosodic adaptation
 affects incremental online processing of utterances and that learning the associations between speakers and their use of prosodic cues is an incremental learning process.
-Lastly, \textcite{Kurumada2012} further showed that listeners can also recalibrate their perceptual boundary between verb-focus and noun-focused
+Lastly, \textcite{Kurumada2012} further showed that listeners can also recalibrate their perceptual boundary between verb-focused and noun-focused
 versions of the same utterance.
 
 \subsection{Accounts and models of partner-specific behavior}
@@ -260,7 +260,7 @@ Each recurrent unit consists of two parts, a meaning system and a sequencing sys
 which together allow the model to simulate production and comprehension. In production, the model bases
 its predictions on a global sentence meaning (the message), represented by abstract semantic roles and lemmas, and the previous word. In comprehension, the model 
 bases its predictions only on the previous context since the message has to be inferred from the perceived utterance (a \textit{messageless} model input). 
-The model is trained on meaning-utterance pairs (an utterance in this model is an order list of morphemes) such that the weights of the RNN are updated 
+The model is trained on meaning-utterance pairs (an utterance in this model is an ordered list of morphemes) such that the weights of the RNN are updated 
 whenever the predicted next morpheme is different from the actual morpheme in the training utterance. This process is intended to simulate the acquisition process.
 Importantly, the model keeps learning when comprehending utterances. When the model receives a messageless input (i.e., the form of an utterance without the associated meaning representation), it compares its morpheme predictions
 to the actual morphemes in the input utterance and if there is a mismatch between predictions and input, the model updates its weights.
@@ -268,7 +268,7 @@ to the actual morphemes in the input utterance and if there is a mismatch betwee
 Like the episodic memory and alignment accounts, this model assumes shared representations, i.e., weights of the RNN, for comprehension and production.
 This leads to the model predicting structural priming. For example, when the model is input an utterance with a prepositional dative it compares its predictions
 to the actual utterance. If it correctly predicts that \textit{to} follows the object in the sentence, the model already favors a prepositional dative structure and it does
-not update its weights significantly. On the other hand, if the model predicted a double object construction and therefore did not predict the \textit{to}, tthe mismatch
+not update its weights significantly. On the other hand, if the model predicted a double object construction and therefore did not predict the \textit{to}, the mismatch
 between predicted morphemes and actual morphemes leads the model to update its weights accordingly. The effect of priming can then be probed by having the model predict
 the production of utterances given a message. \textcite{Chang2006} found that the predicted proportions of syntactic structures closely matched human behavior and that the model
 also exhibited priming behavior independent of specific lexical items (e.g., priming from a prepositional construction with \textit{to} to a prepositional construction with \textit{for}).
@@ -329,7 +329,7 @@ while looking a screen which contains a peach but crucially not a beach, or this
 word makes it very unlikely that the word-initial phoneme is a /p/. Thus given a perceived phonetic cue (e.g., the VOT) and the identity of a phoneme, listeners update their beliefs about the mean and variance parameters 
 using Bayesian belief updating:
 
-$$ \underbrace{P(\mu_b, \sigma_b \mid \mbox{VOT, /b/})}_{\text{posterior}} \propto \underbrace{P(\mu_b, \mu_p)}_{\text{prior}} \times   \underbrace{P(\mbox{VOT} \mid \mbox{/b/}, \mu_b, \sigma_b)}_{\text{likelihood}} $$
+$$ \underbrace{P(\mu_b, \sigma_b \mid \mbox{VOT, /b/})}_{\text{posterior}} \propto \underbrace{P(\mu_b, \sigma_b)}_{\text{prior}} \times   \underbrace{P(\mbox{VOT} \mid \mbox{/b/}, \mu_b, \sigma_b)}_{\text{likelihood}} $$
 
 \noindent According to this model, when observing a /b/ with a specific VOT, a listener re-weights their \textit{prior} beliefs about the values of the parameters influencing the VOT-distribution based on the \textit{likelihood} of observing that VOT given different parameterizations of the VOT distribution, resulting in \textit{posterior} beliefs about parameter values. Thus, with every observation, a listener updates their beliefs about the mappings between phonetic cues and phonemes. 
 
@@ -423,7 +423,7 @@ that they learned in the first session. However, in a third session 9 months lat
 found that cumulative structural priming effects persisted between two experimental sessions that had been one week apart.
 
 In phonetic adaptation, there is more of a consensus that adaptation effects persist for longer period of times. For example, the adaptation study by \textcite{Bradlow2008}
-involved two sessions and listeners retained what they learned in the exposure phase until the second session. Similarly, \cite{Xie2018} also found 
+involved two sessions and listeners retained what they learned in the exposure phase until the second session. Similarly, \textcite{Xie2018} also found 
 that adaptation effects persisted across two sessions separated by 12 hours.
 
 This question has been of great interest because different accounts of partner-specific linguistic behavior make different predictions about long-term effects.
@@ -548,7 +548,7 @@ In the subsequent chapters of this dissertation,  I will consider comprehension 
 rather than short-lived priming effects. I will primarily make use of probabilistic computational models because this family of models successfully explained these behaviors
 at other levels of linguistic representations, though I will also discuss the implications
 of my empirical findings for other types of models. On the empirical side of things, I will investigate the nature of representation in semantic adaptation (Chapter 4);
-the extent of speaker-specific semantic adaptation (Chapter 5); and whether the learning process is context-sensitive or purely automatic (Chapter 7). Before turning to these
+the extent of speaker-specific semantic adaptation (Chapter 5); and whether the learning process is context-sensitive or purely automatic (Chapter 6). Before turning to these
 issues, I will provide more background on the semantics of uncertainty expressions and a computational framework to model comprehension and production of utterances.
 
 
@@ -709,7 +709,7 @@ the \textit{modal base} $f(w)$ and the \textit{ordering source} $g(w)$.
 
 The intuition behind the modal base $f(w)$ is that one can explicitly state which worlds the modal quantifies over using an 
 ``In the view of ...'' adverbial clause. For example, for epistemic modals, the modal base may be a function that returns the set of propositions
-that are compatible with what is knowns in the current world, which can be explicitly expressed in a sentence with an epistemic modal through the
+that are compatible with what is known in the current world, which can be explicitly expressed in a sentence with an epistemic modal through the
 adverbial clause ``In the view of what is known'':
 
 \begin{exe}
@@ -751,7 +751,7 @@ Necessity and possibility then be defined as follows.
 \begin{quote}
 \noindent \textit{Necessity}: \\
 $\phi$ is a necessity with respect to a modal base $f$ and an ordering source $g$ iff for all $u \in \cap f(w)$, there is a $v \in \cap f(w)$
-such that $u \ge_{g(w)} v$ and for all $z \in \cap f(w):$ if $v \ge_{g(w)} z$, then $z \in \phi$.
+such that $u \le_{g(w)} v$ and for all $z \in \cap f(w):$ if $v \le_{g(w)} z$, then $z \in \phi$.
 
 \noindent \textit{Possibility}: \\
 $\phi$ is a possibility with respect to a modal base $f$ and an ordering source $g$ iff $\lnot \phi$ is not a necessity with respect to $f$ and $g$.
@@ -785,7 +785,7 @@ in \textcite[][Ch. 2]{Kratzer2012} which is slightly different from the original
 \begin{quote}
 \noindent \textit{Comparative possibility}: \\
 $\phi$ is at least as good a possibility as $\psi$ in $w$ with respect to a modal base $f$ and an ordering source $g$ iff 
-$$\lnot \exists u ( u \in \cap f(w) \land u \in \phi-\psi \land \forall v (( v \in \cap f(w) \land v \in \psi-\phi) \rightarrow v <_{g(w)} u))$$
+$$\lnot \exists u ( u \in \cap f(w) \land u \in (\psi-\phi) \land \forall v (( v \in \cap f(w) \land v \in (\phi-\psi)) \rightarrow v <_{g(w)} u))$$
 \end{quote}
 \noindent	Further, $\phi$ is a better possibility than $\psi$ iff $\phi$ is at least as good a  possibility as $\psi$ and $\psi$ is 
 not at least as good as possibility as $\phi$. Using this definition, \textcite{Kratzer1991} defines the semantics of \textit{probably} as
@@ -843,8 +843,8 @@ they can be used with degree modifiers  (\ref{ex:degree-mod}), and measure phras
 \end{exe}
 
 \noindent Because of this parallelism, threshold accounts, which have been successfully used to represent the meaning of gradable adjectives,
-can also be straightforwardly applied to graded or comparative epistemic modals. For example, the utterances in \ref{ex:degree-mod}b), 
-\ref{ex:measure-phrase}b), and (\ref{ex:comp-clause}b)
+can also be straightforwardly applied to graded or comparative epistemic modals. For example, the utterances in (\ref{ex:degree-mod}b), 
+(\ref{ex:measure-phrase}b), and (\ref{ex:comp-clause}b)
 can be represented as follows.
 
 \begin{exe}
@@ -940,7 +940,7 @@ for this variability but they assumed that it was caused by individual differenc
 or different experience levels with uncertainty expressions.
 
 The finding that there exists considerable variability inspired a lot of follow-up work to identify contextual factors
-affecting interpretations and productions of uncertainty expressions. These factors include base probability events (e.g.,
+affecting interpretations and productions of uncertainty expressions. These factors include base probability rates (e.g.,
 \textit{probable} describing the likelihood of snow in the North Carolina mountains in December is interpreted to describe
 higher event probabilities than when describing the probability of snow in October, \citeauthor{Wallsten1986b}, \citeyear{Wallsten1986b}); 
 outcome severity (more severe consequences lead to inferring higher probabilities, \citeauthor{Weber1990}, \citeyear{Weber1990}); outcome valence
@@ -986,7 +986,7 @@ as a proper semantic representation.
 
 \section{The Rational Speech Act framework}
 
-The Rational Speech Act (RSA; \citeauthor{Goodman2016}, \citeyear{Goodman2016}, see also \citeauthor{Franke2016b}, \citeyear{Franke2016b}) framework provides a computational-level
+The Rational Speech Act (RSA; \citeauthor{Goodman2016}, \citeyear{Goodman2016}, see also \citeauthor{Franke2016}, \citeyear{Franke2016}) framework provides a computational-level
 theory of how speakers choose utterances from a set of alternative utterances and how listeners interpret utterances. The framework is
 a game-theoretic probabilistic formalization of Gricean \cite{Grice1975} pragmatic reasoning and casts interpretation of utterances as probabilistic Bayesian
 inference, following recent successes in Bayesian modeling of many cognitive processes \egcite{Tenenbaum2011}. 
@@ -1032,7 +1032,7 @@ $$U_i(w,u) = \log L_{i}(w \mid u) - c(u)$$
 $$S_i \propto \mbox{exp} \left( \lambda U_{i-1}(w,u) \right)$$
 $$ L_i(u \mid w) \propto P(w) \times S_i(u \mid w)$$
 
-In practice, however, this recursive process is usually capped at the $S_1$ and $L_1$ level (\citeauthor{Franke2016}, \citeyear{Franke2016}; but cf. \citeauthor{Lassiter2017b}, \citeyear{Lassiter2017b}; \citeauthor{Bergen2016}, \citeyear{Bergen2016}) and the models
+In practice, however, this recursive process is usually capped at the $S_1$ and $L_1$ level (\citeauthor{Franke2016b}, \citeyear{Franke2016b}; but cf. \citeauthor{Lassiter2017b}, \citeyear{Lassiter2017b}; \citeauthor{Bergen2016}, \citeyear{Bergen2016}) and the models
 that I will consider in this dissertation are also all capped at the $L_1$ level.
 
 
@@ -1041,7 +1041,7 @@ This recursive reasoning process implicitly models a Gricean counterfactual reas
 that a speaker could have produced but didn't. To illustrate how this works, consider a simple reference game as shown in Figure~\ref{fig:faces-ad-hoc-imp}.\footnote{Example adapted from \textcite{Goodman2016}.} In this game,
 there are three faces: one without any accessories (\textbf{n}), one with glasses (\textbf{g}), and one with glasses and a hat (\textbf{gh}). A speaker chooses one of the three faces
 and tries to communicate her choice to the listener through an utterance $u$. In this contrived example, let us assume that the only three possible utterances that the
-speaker can choose from are $U=\{\mbox{\textsc{face}: My friend has a face},\mbox{\textsc{glasses}: My friend has glasses},$ $\mbox{\textsc{hat}: My friend has a hat}\}$, 
+speaker can choose from are $U=\{\mbox{\textsc{face}: My friend has a face},\mbox{\textsc{glasses}: My friend has glasses},$ \\ $\mbox{\textsc{hat}: My friend has a hat}\}$, 
 and that the listener is aware that the speaker can only choose from these three utterances. Speakers tend to show the following behavior in this game. If they refer
 to \textbf{n}, they produce \textsc{face}, if they refer to \textbf{g}  they produce \textsc{glasses}, and if they refer to \textbf{gh} they produce \textsc{hat}. Conversely, listeners infer that 
 the speaker likely referred to \textbf{n} after hearing \textsc{face}, to \textbf{g}  after hearing \textsc{glasses}, and to \textbf{gh} after hearing \textsc{hat}.
